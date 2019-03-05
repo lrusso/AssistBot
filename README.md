@@ -9,7 +9,7 @@ Demo: https://lrusso.github.io/assistbot/ChatBot.htm
 | UPDATE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
 | 1 | BotUI Core | Scroll to bottom when new content.
-| 2 | BotUI Core | Prevents from inputting HTML tags.
+| 2 | BotUI Core | Prevents from inputting HTML content.
 | 3 | BotUI Core | Fixed bug when the user inputs a blank space.
 | 4 | Demo Script | Looping checkings for inputted data.
 | 5 | Demo Script | Implemented minimize chatbot window.
