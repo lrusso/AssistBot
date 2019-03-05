@@ -4,7 +4,7 @@ Chabot that asks the user information, valides the data, sends it to a server an
 
 ## Posting the data
 
-There are two code samples in the demo:
+There are two code samples for posting data in the demo:
 
 - First method: Standard XMLHttpRequest.
 - Second method: Creating an image variable, setting in the src value a server URL where all the parameters are sent by GET and the answer of the server must be an image in order to get a valid reply from the bot. This method is useful if you want to avoid the CORS limitation that may exists between servers.
