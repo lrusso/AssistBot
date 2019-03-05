@@ -4,7 +4,10 @@ Chabot that asks the user information, valides the data, sends it to a server an
 
 ## Posting the data
 
-bla
+There are two code samples in the demo:
+
+- First method: Standard XMLHttpRequest.
+- Second method: Getting IMG.
 
 ## Demo:
 
