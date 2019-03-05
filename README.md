@@ -1,5 +1,7 @@
 # Chatbot Assistant for Websites
 
+Chabot that asks the user information, valides the data and sends it to a server.
+
 Demo: https://lrusso.github.io/assistbot/ChatBot.htm
 
 ## Based on BotUI with a few modifications:
