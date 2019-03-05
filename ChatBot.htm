@@ -7,7 +7,7 @@
 		<link rel="stylesheet" href="ChatBot.css" type="text/css">
 	</head>
 	<body style="background-color:grey;">
-		<div class="botui-app-container" id="home-demo">
+		<div class="botui-app-container" id="ChatBot">
 			<div class="botui-title" onclick="minimize()">ChatBot | LRusso.com</div>
 			<div class="botui-scroller" id="botui-scroller">
 				<bot-ui></bot-ui>
@@ -16,7 +16,7 @@
 		<script src="ChatBot.min.js"></script>
 		<script>
 
-			var homeBot = BotUI("home-demo");
+			var homeBot = BotUI("ChatBot");
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
@@ -233,15 +233,15 @@
 
 			function minimize()
 				{
-				if (document.getElementById("home-demo").style.overflowY == "hidden")
+				if (document.getElementById("ChatBot").style.overflowY == "hidden")
 					{
-					document.getElementById("home-demo").style.overflowY = "visible"; 
-					document.getElementById("home-demo").style.height = "auto";
+					document.getElementById("ChatBot").style.overflowY = "visible"; 
+					document.getElementById("ChatBot").style.height = "auto";
 					}
 					else
 					{
-					document.getElementById("home-demo").style.overflowY = "hidden"; 
-					document.getElementById("home-demo").style.height = "30" + "px";
+					document.getElementById("ChatBot").style.overflowY = "hidden"; 
+					document.getElementById("ChatBot").style.height = "30" + "px";
 					}
 				}
 
