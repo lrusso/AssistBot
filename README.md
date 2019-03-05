@@ -13,3 +13,7 @@ Demo: https://lrusso.github.io/assistbot/ChatBot.htm
 | 3 | BotUI Core | Fixed bug when the user inputs a blank space.
 | 4 | Demo Script | Looping checkings for inputted data.
 | 5 | Demo Script | Implemented minimize chatbot window.
+
+## Core files from:
+
+https://github.com/botui/botui
