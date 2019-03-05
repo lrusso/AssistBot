@@ -2,7 +2,13 @@
 
 Chabot that asks the user information, valides the data, sends it to a server and checks that the data got into the server. This bot is also compatible with mobile devices.
 
-Demo: https://lrusso.github.io/assistbot/ChatBot.htm
+## Posting the data
+
+bla
+
+## Demo:
+
+https://lrusso.github.io/assistbot/ChatBot.htm
 
 ## Based on BotUI with a few modifications:
 
