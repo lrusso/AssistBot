@@ -11,7 +11,7 @@ There are two code samples for posting data in the demo:
 
 ## Receiving the data
 
-There is a ChatBot.php sample of how the data may be received. Is just an example.
+There is a ChatBot.php file sample in this repository that shows how the data may be received. Is just an example.
 
 ## Demo:
 
