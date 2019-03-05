@@ -17,7 +17,7 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 
 https://lrusso.github.io/assistbot/ChatBot.htm
 
-## Based on BotUI with a few modifications:
+## Based on BotUI with a few updates:
 
 | UPDATE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
