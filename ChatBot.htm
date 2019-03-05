@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>ChatBot | LRusso.com</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="ChatBot.css" type="text/css">
+	</head>
+	<body>
+		<div class="botui-app-container" id="home-demo">
+			<div class="botui-title" onclick="minimize()">ChatBot | LRusso.com</div>
+			<div class="botui-scroller" id="botui-scroller">
+				<bot-ui></bot-ui>
+			</div>
+		</div>
+		<script src="ChatBot.min.js"></script>
+		<script>
+
+			var homeBot = BotUI("home-demo");
+
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+			var textWelcome = "";
+			var textInputName = "";
+			var textInputNameRetry = "";
+			var textInputNamePlaceHolder = "";
+			var textInputEmail = "";
+			var textInputEmailRetry = "";
+			var textInputEmailPlaceHolder = "";
+			var textInputMessage = "";
+			var textInputMessageRetry = "";
+			var textInputMessagePlaceHolder = "";
+			var textTypePress = "";
+			var textTypeWork = "";
+			var textTypeContact = "";
+			var textThankYou = "";
+
+			var contactType = "";
+			var contactName = "";
+			var contactEmail = "";
+			var contactMessage = "";
+
+			if (userLanguage.substring(0,2)=="es")
+				{
+				textWelcome = "Hola, soy el asistente virtual de este sitio Web. &iquest;En qu&eacute; puedo ayudarlo?";
+				textInputName = "&iquest;Cu&aacute;l es su nombre?";
+				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
+				textInputNamePlaceHolder = "- escriba su nombre aqu" + String.fromCharCode(237) +  " -";
+				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
+				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
+				textInputEmailPlaceHolder = "- escriba su correo aqu" + String.fromCharCode(237) +  " -";
+				textInputMessage = "&iquest;Cu&aacute;l es su mensaje?";
+				textInputMessageRetry = "Por favor, ingrese un mensaje v&aacute;lido.";
+				textInputMessagePlaceHolder = "- escriba su mensaje aqu" + String.fromCharCode(237) +  " -";
+				textTypePress = "Prensa";
+				textTypeWork = "Trabajo";
+				textTypeContact = "Contacto";
+				textThankYou = "Su mensaje ha sido entregado. Muchas gracias.";
+				}
+				else
+				{
+				textWelcome = "Hello, I'm the vitual assistant of this Website, what can I do for you?";
+				textInputName = "What is your name?";
+				textInputNameRetry = "Please, input a valid name.";
+				textInputNamePlaceHolder = "- write your name here -";
+				textInputEmail = "What is your email?";
+				textInputEmailRetry = "Please, input a valid email.";
+				textInputEmailPlaceHolder = "- write your email here -";
+				textInputMessage = "What is your message";
+				textInputMessageRetry = "Please, input a valid message";
+				textInputMessagePlaceHolder = "- write your message here -";
+				textTypePress = "Press";
+				textTypeWork = "Work";
+				textTypeContact = "Contact";
+				textThankYou = "Your message has been delivered. Thank you.";
+				}
+
+			function ChatBot_Step_1_Welcome()
+				{
+				homeBot.message.add(
+					{
+					content: textWelcome
+					}).then(function ()
+					{
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textTypePress, value: "press"},
+									{text: textTypeWork, value: "work"},
+									{text: textTypeContact, value: "contact"}
+								]
+						});
+					}).then(function (res)
+					{
+					if(res.value == "press")
+						{
+						contactType = "press";
+						}
+					else if(res.value =="work")
+						{
+						contactType = "work";
+						}
+					else if(res.value =="contact")
+						{
+						contactType = "contact";
+						}
+					ChatBot_Step_2_Name(textInputName);
+					});
+				}
+
+			function ChatBot_Step_2_Name(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textInputNamePlaceHolder}
+						});
+					}).then(function (res)
+					{
+					if (res.value.trim()=="")
+						{
+						ChatBot_Step_2_Name(textInputNameRetry);
+						}
+						else
+						{
+						contactName = res.value;
+						ChatBot_Step_3_Email(textInputEmail);
+						}
+					});
+				}
+
+			function ChatBot_Step_3_Email(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textInputEmailPlaceHolder}
+						});
+					}).then(function (res)
+					{
+					if (validateEmail(res.value)==true)
+						{
+						contactEmail = res.value;
+						ChatBot_Step_4_Message(textInputMessage);
+						}
+						else
+						{
+						ChatBot_Step_3_Email(textInputEmailRetry);
+						}
+					});
+				}
+
+			function ChatBot_Step_4_Message(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textInputMessagePlaceHolder}
+						});
+					}).then(function (res)
+					{
+					if (res.value.trim()=="")
+						{
+						ChatBot_Step_4_Message(textInputMessageRetry);
+						}
+						else
+						{
+						contactMessage = res.value;
+						ChatBot_Step_5_Posting();
+						}
+					});
+				}
+
+			function ChatBot_Step_5_Posting()
+				{
+				// SETTING THE PARAMETERS
+				var myUrl = "example.php";
+				var params = "type=" + encodeURIComponent(contactType) + "&name=" + encodeURIComponent(contactName) + "&email=" + encodeURIComponent(contactEmail) + "&message=" + encodeURIComponent(contactMessage);
+
+				// VERSION 1 - STANDARD XMLHTTPREQUEST
+				/*
+				var http = new XMLHttpRequest();
+				http.open("GET", myUrl, true);
+				http.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+				http.timeout = serverTimeout;
+				http.onreadystatechange = function()
+					{
+					if(http.readyState == 4)
+						{
+						}
+					};
+				http.onerror = function (){};
+				http.ontimeout = function (e){};
+				http.send(params);
+				*/
+
+				// VERSION 2 - IMG SRC FOR AVOIDING CORS REQUEST
+				/*
+				var myImageSubmittter = document.createElement("img");
+				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
+				*/
+
+				ChatBot_Step_6_Thanks();
+				}
+
+			function ChatBot_Step_6_Thanks()
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					content: textThankYou
+					});
+				}
+
+			function minimize()
+				{
+				if (document.getElementById("home-demo").style.overflowY == "hidden")
+					{
+					document.getElementById("home-demo").style.overflowY = "visible"; 
+					document.getElementById("home-demo").style.height = "auto";
+					}
+					else
+					{
+					document.getElementById("home-demo").style.overflowY = "hidden"; 
+					document.getElementById("home-demo").style.height = "30" + "px";
+					}
+				}
+
+			function validateEmail(email)
+				{
+				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				return re.test(String(email).toLowerCase());
+				}
+
+			window.onload = function()
+				{
+				ChatBot_Step_1_Welcome();
+				};
+
+			/*
+			---------------------------
+			IMAGE EXAMPLE
+			---------------------------
+			delay: 1200,
+			type: "embed",
+			content: "https://giphy.com/embed/v1PSPwbLIrata"
+
+			---------------------------
+			URL EXAMPLE
+			---------------------------
+			delay: 1000,
+			content: "!(book) [Read the docs](https:///docs.botui.org), see [examples](https:///examples.botui.org) or explore the code on !(github) [GitHub](https://github.com/moinism/botui)"
+			*/
+
+		</script>
+	</body>
+</html>
