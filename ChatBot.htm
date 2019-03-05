@@ -35,6 +35,7 @@
 			var textTypeWork = "";
 			var textTypeContact = "";
 			var textThankYou = "";
+			var textError = "";
 
 			var contactType = "";
 			var contactName = "";
@@ -58,6 +59,7 @@
 				textTypeWork = "Trabajo";
 				textTypeContact = "Contacto";
 				textThankYou = "Su mensaje ha sido entregado. Muchas gracias.";
+				textError = "Error al enviar el mensaje. Por favor vuelva a intentarlo en otro momento.";
 				}
 				else
 				{
@@ -76,6 +78,7 @@
 				textTypeWork = "Work";
 				textTypeContact = "Contact";
 				textThankYou = "Your message has been delivered. Thank you.";
+				textError = "Error while sending message. Please try again later.";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
@@ -214,17 +217,26 @@
 						{
 						}
 					};
-				http.onerror = function (){};
-				http.ontimeout = function (e){};
+				http.onerror = function (){ChatBot_Step_6_Error();};
+				http.ontimeout = function (e){ChatBot_Step_6_Error();};
 				http.send(params);
 				*/
 
 				// VERSION 2 - IMG SRC FOR AVOIDING CORS REQUEST
 				/*
 				var myImageSubmittter = document.createElement("img");
+				myImageSubmittter.onload = function()
+					{
+					ChatBot_Step_6_Thanks();
+					};
+				myImageSubmittter.onerror = function()
+					{
+					ChatBot_Step_6_Error();
+					};
 				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
 				*/
 
+				// FOR DEMO ONLY
 				ChatBot_Step_6_Thanks();
 				}
 
@@ -234,6 +246,15 @@
 					{
 					delay: 1200,
 					content: textThankYou
+					});
+				}
+
+			function ChatBot_Step_6_Error()
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					content: textError
 					});
 				}
 
