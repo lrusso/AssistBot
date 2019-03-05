@@ -51,5 +51,7 @@ button.botui-actions-buttons-button:not(:last-child){margin-right:10px}
 	75%{transform:translate(0,3px)}
 	100%{transform:translate(0,0)}
 	}
-.botui-title{float:left;width:100%;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:center;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer;}
+.botui-title{float:left;width:100%;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:left;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer;}
+.botui-titlename{padding-left:7px;}
 .botui-scroller{display:block;width:100%;height:200px;overflow-y:hidden;}
+.botui-closeicon{float:right;margin-right:5px;margin-top:8px;width:16px;height:16px;display:inline-block;vertical-align:middle;background-repeat:no-repeat;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfiBh4ALjMcCa0fAAABK0lEQVQoz4WRv0sCYRyHH88UXGwKSglpuKGIogiEmtsCx5ZcGpzirT8ghOaGBoObgsjdMChoiganotGDarHupB/UlJmn59vw3nvVUH2Xl/f9fIbneb8Rwd9jqGNzaaeRL+tHk+27tfPxBMAAQHFxsGLEplegnAeTghNPm6NGjQW7jSAz1L6RUkopPXlRLtFx1K0nrS0BAoFb8KWu9INYStexEkIxzO89b/QBiBFJK46me2Ta7QAy52d3deVnHFrk/Gyp96TjHrenKoZoNhDbv4+PfLmnZpLD9eOwoMS+f0+U1FxQEWSS71ea/MF5WddGHWkJZeH5TQnAo3s4NRvidt9ogAG5j8nl1pmK7Vdt1PIqq3YVImpZ1Vh94uBak0Nx7LJ74kBY+Hebv88nsLefxkmy4roAAAAASUVORK5CYII=");}

@@ -8,7 +8,7 @@
 	</head>
 	<body style="background-color:grey;">
 		<div class="botui-app-container" id="ChatBot">
-			<div class="botui-title" onclick="minimize()">ChatBot | LRusso.com</div>
+			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename">ChatBot | LRusso.com</span><div class="botui-closeicon" id="botui-closeicon"></div></div>
 			<div class="botui-scroller" id="botui-scroller">
 				<bot-ui></bot-ui>
 			</div>
@@ -20,6 +20,7 @@
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
+			var textTitle = "";
 			var textWelcome = "";
 			var textInputName = "";
 			var textInputNameRetry = "";
@@ -42,6 +43,7 @@
 
 			if (userLanguage.substring(0,2)=="es")
 				{
+				textTitle = "Asistente virtual de LRusso.com.ar";
 				textWelcome = "Hola, soy el asistente virtual de este sitio Web. &iquest;En qu&eacute; puedo ayudarlo?";
 				textInputName = "&iquest;Cu&aacute;l es su nombre?";
 				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
@@ -59,6 +61,7 @@
 				}
 				else
 				{
+				textTitle = "Virtual assistant of LRusso.com.ar";
 				textWelcome = "Hello, I'm the vitual assistant of this Website. What can I do for you?";
 				textInputName = "What is your name?";
 				textInputNameRetry = "Please, input a valid name.";
@@ -74,6 +77,8 @@
 				textTypeContact = "Contact";
 				textThankYou = "Your message has been delivered. Thank you.";
 				}
+
+			document.getElementById("botui-titlename").innerHTML = textTitle;
 
 			function ChatBot_Step_1_Welcome()
 				{
@@ -237,11 +242,13 @@
 					{
 					document.getElementById("ChatBot").style.overflowY = "visible"; 
 					document.getElementById("ChatBot").style.height = "auto";
+					document.getElementById("botui-closeicon").style.display = "block";
 					}
 					else
 					{
 					document.getElementById("ChatBot").style.overflowY = "hidden"; 
 					document.getElementById("ChatBot").style.height = "30" + "px";
+					document.getElementById("botui-closeicon").style.display = "none";
 					}
 				}
 
