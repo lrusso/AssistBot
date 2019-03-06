@@ -221,6 +221,7 @@
     root.Vue.directive('botui-markdown', function (el, binding) {
       if(binding.value == 'false') return; // v-botui-markdown="false"
       el.innerHTML = _parseMarkDown(el.textContent);
+      _container.scrollTop = _container.scrollHeight;
     });
 
     root.Vue.directive('botui-scroll', {
