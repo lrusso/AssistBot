@@ -21,7 +21,7 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | #  | BOT URL  | BOT DETAILS |
 | :------------: |:---------------:| :-----|
 | 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking and sending user information.
-| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Hotel receptionist.
+| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Making a hotel reservation.
 | 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Technical Support.
 
 ## Based on BotUI with a few updates:
