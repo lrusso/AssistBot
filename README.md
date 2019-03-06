@@ -29,5 +29,7 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 1 | BotUI Core | Scroll to bottom when new content.
 | 2 | BotUI Core | Prevents from inputting HTML content.
 | 3 | BotUI Style | Bugfixed when inputting a blank space.
-| 4 | Demo Script | Looping checkings for inputted data.
-| 5 | Demo Script | Implemented minimize chatbot window.
+| 4 | BotUI Style | Bugfixed that the input box inherits the content-box property.
+| 5 | BotUI Style | Bugfixed that the loading dots inherits the content-box property.
+| 6 | Demo Script | Looping checkings for inputted data.
+| 7 | Demo Script | Implemented minimize chatbot window.
