@@ -1,6 +1,6 @@
 # AssistBot - JavaScript Chatbot Assistant for Websites
 
-Chatbot Assistants for Websites in plain JavaScript, compatibles with mobile devices.
+JavaScript Chatbot Assistant for Websites, compatible with mobile devices.
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/assistbot/master/ChatBot.png)
 
