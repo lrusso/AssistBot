@@ -36,4 +36,4 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 8 | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
 | 9 | Demo Script | Looping checkings for inputted data.
 | 10 | Demo Script | Implemented scrolling chatbot window.
-| 11 | Demo Script | Implemented minimize chatbot window.
+| 11 | Demo Script | Implemented minimize button in the chatbot window.
