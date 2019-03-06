@@ -4,7 +4,7 @@ form.botui-actions-text{margin:0}
 button.botui-actions-buttons-button,input.botui-actions-text-input{margin:0;font-size:100%;line-height:normal;vertical-align:baseline}
 button.botui-actions-buttons-button::-moz-focus-inner,input.botui-actions-text-input::-moz-focus-inner{border:0;padding:0}
 button.botui-actions-buttons-button{cursor:pointer;-webkit-appearance:button}
-.botui-app-container{position:fixed;bottom:0;right:15px;width:300px;z-index:9999;border-left:1px solid silver;border-top:1px solid silver;border-right:1px solid silver;background-color:white;}
+.botui-app-container{position:fixed;bottom:0;right:15px;width:300px;z-index:9999;border-left:1px solid silver;border-top:1px solid silver;border-right:1px solid silver;background-color:white}
 .botui-container{width:100%;height:100%;overflow-y:auto;overflow-x:hidden;font-size:14px;background-color:#fff;font-family:Arial}
 .botui-message{margin:10px 0;min-height:20px}
 .botui-message:after{display:block;content:"";clear:both}
@@ -21,16 +21,16 @@ button.botui-actions-buttons-button{cursor:pointer;-webkit-appearance:button}
 button.botui-actions-buttons-button{margin-top:10px;margin-bottom:10px}
 button.botui-actions-buttons-button:not(:last-child){margin-right:10px}
 .botui-actions-text-submit{display:none}
-.botui-messages-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:10px;display:inline-block;}
-.botui-actions-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:25px;}
+.botui-messages-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:10px;display:inline-block}
+.botui-actions-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:25px}
 .botui-message{min-height:30px}
 .botui-message-content{padding:7px 13px;border-radius:15px;color:#595a5a;background-color:#ebebeb}
 .botui-message-content.human{color:#f7f8f8;background-color:#919292}
-.botui-message-content.text{min-height:18px;line-height:18px;}
-.botui-message-content.loading{background-color:rgba(206,206,206,.5);line-height:1.3;text-align:center;box-sizing:content-box;}
+.botui-message-content.text{min-height:18px;line-height:18px}
+.botui-message-content.loading{background-color:rgba(206,206,206,.5);line-height:1.3;text-align:center;box-sizing:content-box}
 .botui-message-content.embed{padding:5px;border-radius:5px}
 .botui-message-content-link{color:#919292}
-.botui-actions-text-input{border:0;outline:0;border-radius:0;width:100%;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292}
+.botui-actions-text-input{border:0;outline:0;border-radius:0;width:100%;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292;box-sizing:content-box}
 .botui-actions-text-submit{color:#fff;width:30px;padding:5px;height:30px;line-height:1;border-radius:50%;border:1px solid #919292;background:#3a76b1}
 .botui-actions-buttons-button{border:0;color:#fff;line-height:1;cursor:pointer;font-size:14px;font-weight:500;padding:7px 15px;border-radius:4px;font-family:Arial;background:#3a76b1;box-shadow:2px 3px 4px 0 rgba(0,0,0,.25)}
 .botui-actions-text-select{border:0;outline:0;border-radius:0;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292}
@@ -39,7 +39,7 @@ button.botui-actions-buttons-button:not(:last-child){margin-right:10px}
 .botui-actions-text-searchselect .selected-tag{background-color:transparent!important;border:0!important}
 .slide-fade-enter-active{transition:all .3s ease}
 .slide-fade-enter,.slide-fade-leave-to{opacity:0;transform:translateX(-10px)}
-.dot{width:.5rem;height:.5rem;border-radius:.5rem;display:inline-block;background-color:#919292;box-sizing:content-box;}
+.dot{width:.5rem;height:.5rem;border-radius:.5rem;display:inline-block;background-color:#919292;box-sizing:content-box}
 .dot:nth-last-child(1){margin-left:.3rem;animation:loading .6s .3s linear infinite}
 .dot:nth-last-child(2){margin-left:.3rem;animation:loading .6s .2s linear infinite}
 .dot:nth-last-child(3){animation:loading .6s .1s linear infinite}
@@ -51,7 +51,7 @@ button.botui-actions-buttons-button:not(:last-child){margin-right:10px}
 	75%{transform:translate(0,3px)}
 	100%{transform:translate(0,0)}
 	}
-.botui-title{float:left;width:100%;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:left;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer;}
-.botui-titlename{padding-left:7px;}
-.botui-scroller{display:block;width:100%;height:200px;overflow-y:hidden;}
-.botui-closeicon{float:right;margin-right:5px;margin-top:8px;width:16px;height:16px;display:inline-block;vertical-align:middle;background-repeat:no-repeat;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfiBh4ALjMcCa0fAAABK0lEQVQoz4WRv0sCYRyHH88UXGwKSglpuKGIogiEmtsCx5ZcGpzirT8ghOaGBoObgsjdMChoiganotGDarHupB/UlJmn59vw3nvVUH2Xl/f9fIbneb8Rwd9jqGNzaaeRL+tHk+27tfPxBMAAQHFxsGLEplegnAeTghNPm6NGjQW7jSAz1L6RUkopPXlRLtFx1K0nrS0BAoFb8KWu9INYStexEkIxzO89b/QBiBFJK46me2Ta7QAy52d3deVnHFrk/Gyp96TjHrenKoZoNhDbv4+PfLmnZpLD9eOwoMS+f0+U1FxQEWSS71ea/MF5WddGHWkJZeH5TQnAo3s4NRvidt9ogAG5j8nl1pmK7Vdt1PIqq3YVImpZ1Vh94uBak0Nx7LJ74kBY+Hebv88nsLefxkmy4roAAAAASUVORK5CYII=");}
+.botui-title{float:left;width:100%;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:left;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer}
+.botui-titlename{padding-left:7px}
+.botui-scroller{display:block;width:100%;height:200px;overflow-y:hidden}
+.botui-closeicon{float:right;margin-right:5px;margin-top:8px;width:16px;height:16px;display:inline-block;vertical-align:middle;background-repeat:no-repeat;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfiBh4ALjMcCa0fAAABK0lEQVQoz4WRv0sCYRyHH88UXGwKSglpuKGIogiEmtsCx5ZcGpzirT8ghOaGBoObgsjdMChoiganotGDarHupB/UlJmn59vw3nvVUH2Xl/f9fIbneb8Rwd9jqGNzaaeRL+tHk+27tfPxBMAAQHFxsGLEplegnAeTghNPm6NGjQW7jSAz1L6RUkopPXlRLtFx1K0nrS0BAoFb8KWu9INYStexEkIxzO89b/QBiBFJK46me2Ta7QAy52d3deVnHFrk/Gyp96TjHrenKoZoNhDbv4+PfLmnZpLD9eOwoMS+f0+U1FxQEWSS71ea/MF5WddGHWkJZeH5TQnAo3s4NRvidt9ogAG5j8nl1pmK7Vdt1PIqq3YVImpZ1Vh94uBak0Nx7LJ74kBY+Hebv88nsLefxkmy4roAAAAASUVORK5CYII=")}
