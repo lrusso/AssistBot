@@ -28,8 +28,11 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | :------------: |:---------------:| :-----|
 | 1 | BotUI Core | Scroll to bottom when new content.
 | 2 | BotUI Core | Prevents from inputting HTML content.
-| 3 | BotUI Style | Bugfixed when inputting a blank space.
-| 4 | BotUI Style | Bugfixed that the input box inherits the content-box property.
-| 5 | BotUI Style | Bugfixed that the loading dots inherits the content-box property.
-| 6 | Demo Script | Looping checkings for inputted data.
-| 7 | Demo Script | Implemented minimize chatbot window.
+| 3 | BotUI Core | Prevents from automatically showing the response of an action button.
+| 4 | BotUI Core | Loading Agent and Human icons from the CSS file.
+| 5 | BotUI Style | Bugfixed when inputting a blank space.
+| 6 | BotUI Style | Bugfixed that the icons inherits the content-box property.
+| 7 | BotUI Style | Bugfixed that the input box inherits the content-box property.
+| 8 | BotUI Style | Bugfixed that the loading dots inherits the content-box property.
+| 9 | Demo Script | Looping checkings for inputted data.
+| 10 | Demo Script | Implemented minimize chatbot window.
