@@ -38,6 +38,8 @@
 			var textInputEmail = "";
 			var textInputEmailRetry = "";
 			var textInputEmailPlaceHolder = "";
+			var textReservationMade = "";
+			var textNoReservationMade = "";
 			var textThankYou = "";
 			var textError = "";
 
@@ -67,6 +69,8 @@
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
 				textInputEmailPlaceHolder = "- escriba su correo aqu" + String.fromCharCode(237) +  " -";
+				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del 3 al 13 de Mayo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textNoReservationMade = " no tiene reservada ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textThankYou = "Su reserva se ha realizado. Muchas gracias.";
 				textError = "Error al realizar la reserva. Por favor vuelva a intentarlo en otro momento.";
 				}
@@ -90,20 +94,22 @@
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
 				textInputEmailPlaceHolder = "- write your email here -";
+				textReservationMade = " has a double room reserved from 3th May until 13th May. What else can I do for you?";
+				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
 				textThankYou = "You reservation was made. Thank you.";
 				textError = "Error while making the reservation. Please try again later.";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome()
+			function ChatBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
 					delay: 1200,
 					loading: true,
 					photo: true,
-					content: textWelcome
+					content: a
 					}).then(function ()
 					{
 					return homeBot.action.button(
@@ -370,13 +376,16 @@
 						}
 						else
 						{
-						homeBot.message.add(
+						var reserved = true;
+
+						if (reserved==true)
 							{
-							delay: 1200,
-							loading: true,
-							photo: true,
-							content: res.value + " tiene reservada una habitación matrimonial del 3 al 13 de Mayo."
-							});
+							ChatBot_Step_1_Welcome(res.value + textReservationMade);
+							}
+							else
+							{
+							ChatBot_Step_1_Welcome(res.value + textNoReservationMade);
+							}
 						}
 					});
 				}
@@ -415,7 +424,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome();
+				ChatBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*
