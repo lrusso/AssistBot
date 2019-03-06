@@ -89,6 +89,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: textWelcome
 					}).then(function ()
 					{
@@ -96,13 +97,15 @@
 						{
 						delay: 1000,
 						action: [
-									{text: textTypePress, value: "press"},
-									{text: textTypeWork, value: "work"},
-									{text: textTypeContact, value: "contact"}
+									{text: textTypePress, value: textTypePress},
+									{text: textTypeWork, value: textTypeWork},
+									{text: textTypeContact, value: textTypeContact}
 								]
 						});
 					}).then(function (res)
 					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
 					if(res.value == "press")
 						{
 						contactType = "press";
@@ -125,6 +128,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: a
 					}).then(function ()
 					{
@@ -135,6 +139,8 @@
 						});
 					}).then(function (res)
 					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
 					if (res.value.trim()=="")
 						{
 						ChatBot_Step_2_Name(textInputNameRetry);
@@ -153,6 +159,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: a
 					}).then(function ()
 					{
@@ -163,6 +170,8 @@
 						});
 					}).then(function (res)
 					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
 					if (validateEmail(res.value)==true)
 						{
 						contactEmail = res.value;
@@ -181,6 +190,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: a
 					}).then(function ()
 					{
@@ -191,6 +201,8 @@
 						});
 					}).then(function (res)
 					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
 					if (res.value.trim()=="")
 						{
 						ChatBot_Step_4_Message(textInputMessageRetry);
@@ -253,6 +265,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: textThankYou
 					});
 				}
@@ -263,6 +276,7 @@
 					{
 					delay: 1200,
 					loading: true,
+					photo: true,
 					content: textError
 					});
 				}
