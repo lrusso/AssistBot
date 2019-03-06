@@ -97,27 +97,28 @@
 						{
 						delay: 1000,
 						action: [
-									{text: textTypePress, value: textTypePress},
-									{text: textTypeWork, value: textTypeWork},
-									{text: textTypeContact, value: textTypeContact}
+									{text: textTypePress, value: "press"},
+									{text: textTypeWork, value: "work"},
+									{text: textTypeContact, value: "contact"}
 								]
 						});
 					}).then(function (res)
 					{
-					homeBot.message.add({human: true, photo: true, content: res.value});
+					homeBot.message.add({human: true, photo: true, content: res.text});
 
 					if(res.value == "press")
 						{
 						contactType = "press";
 						}
-					else if(res.value =="work")
+					else if(res.value == "work")
 						{
 						contactType = "work";
 						}
-					else if(res.value =="contact")
+					else if(res.value == "contact")
 						{
 						contactType = "contact";
 						}
+
 					ChatBot_Step_2_Name(textInputName);
 					});
 				}
