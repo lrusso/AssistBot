@@ -4,6 +4,13 @@ Chatbot that asks the user information, validates the data, sends it to a server
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/assistbot/master/ChatBot.png)
 
+## Bot samples:
+
+| #  | BOT URL  | BOT DETAILS |
+| :------------: |:---------------:| :-----|
+| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking and sending user information.
+| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Making a hotel reservation.
+| 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Technical Support.
 
 ## Sending the data
 
@@ -15,14 +22,6 @@ There are two methods for posting data in the demo:
 ## Receiving the data
 
 There is a ChatBot.php file sample in this repository that shows how the data may be received.
-
-## Bot samples:
-
-| #  | BOT URL  | BOT DETAILS |
-| :------------: |:---------------:| :-----|
-| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking and sending user information.
-| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Making a hotel reservation.
-| 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Technical Support.
 
 ## Based on BotUI with a few updates:
 
