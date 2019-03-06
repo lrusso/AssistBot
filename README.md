@@ -1,6 +1,6 @@
-# Chatbot Assistant for Websites
+# AssistBot - JavaScript Chatbot Assistant for Websites
 
-Chatbot that asks the user information, validates the data, sends it to a server and checks that the data got into the server. This bot is also compatible with mobile devices.
+Chatbot Assistants for Websites in plain JavaScript, compatibles with mobile devices.
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/assistbot/master/ChatBot.png)
 
