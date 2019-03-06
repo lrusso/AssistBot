@@ -29,7 +29,7 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 1 | BotUI Core | Scroll to bottom when new content.
 | 2 | BotUI Core | Prevents from inputting HTML content.
 | 3 | BotUI Core | Prevents from automatically showing the response of an action button.
-| 4 | BotUI Core | Loading Agent and Human icons from the CSS file.
+| 4 | BotUI Core | Agent and Human icons are loaded from the CSS file.
 | 5 | BotUI Style | Bugfixed when inputting a blank space.
 | 6 | BotUI Style | Bugfixed that the icons inherits the box-sizing property.
 | 7 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
