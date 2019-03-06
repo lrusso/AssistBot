@@ -106,18 +106,7 @@
 					{
 					homeBot.message.add({human: true, photo: true, content: res.text});
 
-					if(res.value == "press")
-						{
-						contactType = "press";
-						}
-					else if(res.value == "work")
-						{
-						contactType = "work";
-						}
-					else if(res.value == "contact")
-						{
-						contactType = "contact";
-						}
+					contactType = res.value;
 
 					ChatBot_Step_2_Name(textInputName);
 					});
