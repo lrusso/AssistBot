@@ -20,7 +20,7 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 
 | #  | BOT URL  | DETAILS |
 | :------------: |:---------------:| :-----|
-| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking for user information.
+| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking and sending user information.
 
 ## Based on BotUI with a few updates:
 
