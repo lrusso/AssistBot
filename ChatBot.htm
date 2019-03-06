@@ -201,6 +201,9 @@
 
 			function ChatBot_Step_5_Posting()
 				{
+				contactEmail = contactEmail.toLowerCase();
+				contactName = normalizeName(contactName);
+
 				// SETTING THE PARAMETERS
 				var myUrl = "example.php";
 				var params = "type=" + encodeURIComponent(contactType) + "&name=" + encodeURIComponent(contactName) + "&email=" + encodeURIComponent(contactEmail) + "&message=" + encodeURIComponent(contactMessage);
@@ -278,6 +281,16 @@
 				{
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				return re.test(String(email).toLowerCase());
+				}
+
+			function normalizeName(str)
+				{
+				var splitStr = str.toLowerCase().split(' ');
+				for (var i = 0; i < splitStr.length; i++)
+					{
+					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+					}
+				return splitStr.join(' ');
 				}
 
 			window.onload = function()
