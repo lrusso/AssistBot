@@ -32,8 +32,8 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 4 | BotUI Core | Agent and Human icons are loaded from the CSS file.
 | 5 | BotUI Style | Bugfixed when inputting a blank space.
 | 6 | BotUI Style | Bugfixed that the icons inherits the box-sizing property.
-| 7 | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
-| 8 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
+| 7 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
+| 8 | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
 | 9 | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
 | 10 | Demo Script | Looping checkings for inputted data.
 | 11 | Demo Script | Implemented scrolling chatbot window.
