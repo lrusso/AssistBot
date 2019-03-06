@@ -26,6 +26,8 @@
 			var textCheckReservation = "";
 			var textInputDate = "";
 			var textInputDateWho = "";
+			var textInputDateError1 = "";
+			var textInputDateError2 = "";
 			var textVacancy = "";
 			var textNoVacancy = "";
 			var textRoomSimple = "";
@@ -57,6 +59,8 @@
 				textCheckReservation = "Consultar reserva";
 				textInputDate = "Seleccione una fecha y presione ENTER.";
 				textInputDateWho = "&iquest;A nombre de qui&eacute;n hizo la reserva?";
+				textInputDateError1 = "La fecha ingresada no puede ser anterior o igual a la fecha actual. Por favor seleccione otra fecha.";
+				textInputDateError2 = "La fecha ingresada no puede ser superior a dos años de la fecha actual. Por favor seleccione otra fecha.";
 				textVacancy = "Hay disponibilidad en esa fecha. &iquest;Qu&eacute; tipo de habitaci&oacute;n desea?";
 				textNoVacancy = "No hay disponibilidad en esa fecha. Por favor seleccione otra.";
 				textRoomSimple = "Simple";
@@ -82,6 +86,8 @@
 				textCheckReservation = "Check reservation";
 				textInputDate = "Select a date and press ENTER.";
 				textInputDateWho = "Under what name the reservation was made?";
+				textInputDateError1 = "The date can't be before or equal to the current date. Please select another date.";
+				textInputDateError2 = "The date can't be more than two years after the current date. Please select another date.";
 				textVacancy = "There is vacancy in that date. What kind of room would you like?";
 				textNoVacancy = "There is no vacancy in the selected date. Please select another one.";
 				textRoomSimple = "Simple";
@@ -152,20 +158,60 @@
 						});
 					}).then(function (res)
 					{
-					homeBot.message.add({human: true, photo: true, content: res.value});
+					var response = res.value.split("-");
+					var valueYear = response[0];
+					var valueMonth = response[1];
+					var valueDay = response[2];
 
-					var reservationDate = res.value;
+					var dateText = "";
 
-					var vacancy = true;
-
-					// IF THERE IS ANY VACANCY
-					if (vacancy == true)
+					if (userLanguage.substring(0,2)=="es")
 						{
-						ChatBot_Step_3_RoomType(textVacancy);
+						dateText = valueDay + "/" + valueMonth + "/" + valueYear;
 						}
 						else
 						{
-						ChatBot_Step_2_Date(textNoVacancy);
+						dateText = valueMonth + "/" + valueDay + "/" + valueYear;
+						}
+
+					homeBot.message.add({human: true, photo: true, content: dateText});
+
+					var selectedDate = new Date(res.value);
+					var selectedYear = selectedDate.getFullYear();
+					var currentDate = new Date();
+					var currentYear = currentDate.getFullYear();
+
+					if (selectedYear<currentYear) // IF THE SELECTED YEAR IS BEFORE THE CURRENT YEAR
+						{
+						ChatBot_Step_2_Date(textInputDateError1);
+						}
+					else if (selectedYear>currentYear+1) // IF THE SELECTED DATE IS MORE THAN TWO YEARS AFTER THE CURRENT DATE
+						{
+						ChatBot_Step_2_Date(textInputDateError2);
+						}
+					else if (isNaN(selectedYear)) // IF THE SELECTED YEAR DOESN'T EXISTS
+						{
+						ChatBot_Step_2_Date(textInputDateError2);
+						}
+					else if (selectedDate<currentDate) // IF THE SELECTED DATE IS BEFORE CURRENT DATE
+						{
+						ChatBot_Step_2_Date(textInputDateError1);
+						}
+						else
+						{
+						var reservationDate = res.value;
+
+						var vacancy = true;
+
+						// IF THERE IS ANY VACANCY
+						if (vacancy == true)
+							{
+							ChatBot_Step_3_RoomType(textVacancy);
+							}
+							else
+							{
+							ChatBot_Step_2_Date(textNoVacancy);
+							}
 						}
 					});
 				}
@@ -410,6 +456,11 @@
 				{
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 				return re.test(String(email).toLowerCase());
+				}
+
+			function validateDate(d)
+				{
+				return d instanceof Date && !isNaN(d);
 				}
 
 			function normalizeName(str)
