@@ -16,7 +16,11 @@ There are two methods for posting data in the demo:
 
 There is a ChatBot.php file sample in this repository that shows how the data may be received.
 
-## Demo:
+## Bot samples:
+
+| #  | ELEMENT  | DETAILS |
+| :------------: |:---------------:| :-----|
+| 1 | Bot Sample | Asking for user information.
 
 https://lrusso.github.io/assistbot/ChatBot.htm
 
