@@ -18,11 +18,9 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 
 ## Bot samples:
 
-| #  | ELEMENT  | DETAILS |
+| #  | URL  | DETAILS |
 | :------------: |:---------------:| :-----|
-| 1 | Bot Sample | Asking for user information.
-
-https://lrusso.github.io/assistbot/ChatBot.htm
+| 1 | https://lrusso.github.io/assistbot/ChatBot.htm | Asking for user information.
 
 ## Based on BotUI with a few updates:
 
