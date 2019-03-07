@@ -22,6 +22,9 @@
 
 			var textTitle = "";
 			var textWelcome = "";
+			var textNewReport = "";
+			var textQueryReport = "";
+			var textDeviceType = "";
 			var textTabletBroken = "";
 			var textSmartphoneBroken = "";
 			var textQuestion1 = "";
@@ -37,6 +40,10 @@
 			var textInputNameRetry = "";
 			var textInputEmail = "";
 			var textInputEmailRetry = "";
+			var textInputReportNumber = "";
+			var textInputReportNumberRetry = "";
+			var textInputReportNumberFound = "";
+			var textInputReportNumberNotFound = "";
 			var textThankYou = "";
 			var textError = "";
 			var textGladToHelp = "";
@@ -52,24 +59,31 @@
 				{
 				textTitle = "Asistente virtual";
 				textWelcome = "Hola, soy la asistente virtual del Soporte T&eacute;cnico Ejemplo. &iquest;Qu&eacute; puedo hacer por usted?";
-				textTabletBroken = "Tablet rota";
-				textSmartphoneBroken = "Smartphone roto";
-				textQuestion1 = "&iquest;Qu&eacute; le sucede al equipo?";
+				textNewReport = "Dispositivo roto";
+				textQueryReport = "Consultar ticket";
+				textDeviceType = "&iquest;Es un smartphone o una tablet?";
+				textTablet = "Tablet";
+				textSmartphone = "Smartphone";
+				textQuestion1 = "&iquest;Qu&eacute; le sucede al dispositivo?";
 				textQuestion1Answer1 = "No enciende";
 				textQuestion1Answer2 = "No responde";
 				textQuestion1Answer3 = "Pantalla rota";
 				textQuestion1Answer4 = "Bater" + String.fromCharCode(237) +  "a agotada";
 				textSuggestion1 = "Intente reestablecer el dispositivo de f&aacute;brica. &iquest;Esto ha solucionado el problema?";
-				textSuggestion2 = "Intente esperar a que la bater&iacute;a se agote. &iquest;Esto ha solucionado el problema?";
+				textSuggestion2 = "Intente esperar a que la bater&iacute;a se agote y luego cargue el dispositivo. &iquest;Esto ha solucionado el problema?";
 				textYes = "S" + String.fromCharCode(237);
 				textNo = "No";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
 				textInputNameRetry = "Por favor, ingrese su nombre completo.";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
-				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico. Muchas gracias.";
-				textError = "Error al derivar la consulta. Por favor vuelva a intentarlo en otro momento.";
-				textGladToHelp = "Fue un gusto haber sido de ayuda. Saludos.";
+				textInputReportNumber = "&iquest;Cu&aacute;l es su n&uacute;mero de ticket?";
+				textInputReportNumberRetry = "Por favor, ingrese su n&uacute;mero de ticket.";
+				textInputReportNumberFound = "Su ticket indica que el dispositivo est&aacute; siendo reparado y ser&aacute; notificado durante el d&iacute;a de hoy. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textInputReportNumberNotFound = "No se encontr&oacute; un ticket con ese n&uacute;mero. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico, su n&uacute;mero de ticket es 8513, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textError = "Error al derivar la consulta, por favor vuelva a intentarlo en otro momento. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textGladToHelp = "Fue un gusto haber sido de ayuda. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
 				}
@@ -77,24 +91,31 @@
 				{
 				textTitle = "Virtual assistant";
 				textWelcome = "Hello, I'm the virtual assistant at the Technical Support Example. What can I do for you?";
-				textTabletBroken = "Broken tablet";
-				textSmartphoneBroken = "Broken smartphone";
+				textNewReport = "Broken device";
+				textQueryReport = "Check ticket";
+				textDeviceType = "Is a smartphone or a tablet?";
+				textTablet = "Tablet";
+				textSmartphone = "Smartphone";
 				textQuestion1 = "What happened with the device?";
-				textQuestion1Answer1 = "Doesn't turn on";
-				textQuestion1Answer2 = "Doesn't respond";
+				textQuestion1Answer1 = "Can't turn on";
+				textQuestion1Answer2 = "Frozen screen";
 				textQuestion1Answer3 = "Broken screen";
 				textQuestion1Answer4 = "Dead battery";
 				textSuggestion1 = "Try to restart the device to the factory settings. Does this solved your problem?";
-				textSuggestion2 = "Try to wait until the battery is dried. Does this solved your problem?";
+				textSuggestion2 = "Try to wait until the battery is dried and then charge the device. Does this solved your problem?";
 				textYes = "Yes";
 				textNo = "No";
 				textInputName = "What is your full name?";
 				textInputNameRetry = "Please, input your full name.";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
-				textThankYou = "You reservation was made. Thank you.";
-				textError = "Error while making the reservation. Please try again later.";
-				textGladToHelp = "It was a pleasure to help you. Best regards.";
+				textInputReportNumber = "What is your ticket number?";
+				textInputReportNumberRetry = "Please, input your ticket number.";
+				textInputReportNumberFound = "Your ticket says that the device is been repaired and you are going to be notified during the day. What else can I do for you?";
+				textInputReportNumberNotFound = "No ticket found with that number. What else can I do for you?";
+				textThankYou = "A report was made to the technical support team, your ticket number is 8513, thank you. What else can I do for you?";
+				textError = "Error while making the report, please try again later. What else can I do for you?";
+				textGladToHelp = "It was a pleasure to help you. What else can I do for you?";
 				textPlaceHolder = "Escriba un mensaje";
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
@@ -102,22 +123,54 @@
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome()
+			function ChatBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
 					delay: 1200,
 					loading: true,
 					photo: true,
-					content: textWelcome
+					content: a
 					}).then(function ()
 					{
 					return homeBot.action.button(
 						{
 						delay: 1000,
 						action: [
-									{text: textSmartphoneBroken, value: "smartphone"},
-									{text: textTabletBroken, value: "tablet"},
+									{text: textNewReport, value: textNewReport},
+									{text: textQueryReport, value: textQueryReport},
+								]
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.text});
+
+					if (res.value==textNewReport)
+						{
+						ChatBot_Step_2_DeviceType();
+						}
+					else if(res.value==textQueryReport)
+						{
+						ChatBot_Step_11_QueryReport(textInputReportNumber);
+						}
+					});
+				}
+			function ChatBot_Step_2_DeviceType()
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: textDeviceType
+					}).then(function ()
+					{
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textSmartphone, value: textSmartphone},
+									{text: textTablet, value: textTablet}
 								]
 						});
 					}).then(function (res)
@@ -126,12 +179,12 @@
 
 					reportDevice = res.value;
 
-					ChatBot_Step_2_Question1();
+					ChatBot_Step_3_Question1();
 
 					});
 				}
 
-			function ChatBot_Step_2_Question1()
+			function ChatBot_Step_3_Question1()
 				{
 				homeBot.message.add(
 					{
@@ -157,12 +210,12 @@
 
 					reportProblem = res.value;
 
-					ChatBot_Step_3_Suggestion1();
+					ChatBot_Step_4_Suggestion1();
 
 					});
 				}
 
-			function ChatBot_Step_3_Suggestion1()
+			function ChatBot_Step_4_Suggestion1()
 				{
 				homeBot.message.add(
 					{
@@ -186,16 +239,16 @@
 
 					if (res.value=="no")
 						{
-						ChatBot_Step_4_Suggestion2();
+						ChatBot_Step_5_Suggestion2();
 						}
 						else
 						{
-						ChatBot_Step_9_GladToHelp();
+						ChatBot_Step_10_GladToHelp();
 						}
 					});
 				}
 
-			function ChatBot_Step_4_Suggestion2(a)
+			function ChatBot_Step_5_Suggestion2(a)
 				{
 				homeBot.message.add(
 					{
@@ -219,16 +272,16 @@
 
 					if (res.value=="no")
 						{
-						ChatBot_Step_5_Name(textInputName);
+						ChatBot_Step_6_Name(textInputName);
 						}
 						else
 						{
-						ChatBot_Step_9_GladToHelp();
+						ChatBot_Step_10_GladToHelp();
 						}
 					});
 				}
 
-			function ChatBot_Step_5_Name(a)
+			function ChatBot_Step_6_Name(a)
 				{
 				homeBot.message.add(
 					{
@@ -249,24 +302,24 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_5_Name(textInputNameRetry);
+						ChatBot_Step_6_Name(textInputNameRetry);
 						}
 						else
 						{
 						if (countWords(res.value)<2)
 							{
-							ChatBot_Step_5_Name(textInputNameRetry);
+							ChatBot_Step_6_Name(textInputNameRetry);
 							}
 							else
 							{
 							reportName = res.value;
-							ChatBot_Step_6_Email(textInputEmail);
+							ChatBot_Step_7_Email(textInputEmail);
 							}
 						}
 					});
 				}
 
-			function ChatBot_Step_6_Email(a)
+			function ChatBot_Step_7_Email(a)
 				{
 				homeBot.message.add(
 					{
@@ -288,16 +341,16 @@
 					if (validateEmail(res.value)==true)
 						{
 						reportEmail = res.value;
-						ChatBot_Step_7_Posting();
+						ChatBot_Step_8_Posting();
 						}
 						else
 						{
-						ChatBot_Step_6_Email(textInputEmailRetry);
+						ChatBot_Step_7_Email(textInputEmailRetry);
 						}
 					});
 				}
 
-			function ChatBot_Step_7_Posting()
+			function ChatBot_Step_8_Posting()
 				{
 				reportEmail = reportEmail.toLowerCase();
 				reportName = normalizeName(reportName);
@@ -338,39 +391,60 @@
 				*/
 
 				// FOR DEMO ONLY
-				ChatBot_Step_8_Thanks();
+				ChatBot_Step_9_Thanks();
 				}
 
-			function ChatBot_Step_8_Thanks()
+			function ChatBot_Step_9_Thanks()
+				{
+				ChatBot_Step_1_Welcome(textThankYou);
+				}
+
+			function ChatBot_Step_9_Error()
+				{
+				ChatBot_Step_1_Welcome(textError);
+				}
+
+			function ChatBot_Step_10_GladToHelp()
+				{
+				ChatBot_Step_1_Welcome(textGladToHelp);
+				}
+
+			function ChatBot_Step_11_QueryReport(a)
 				{
 				homeBot.message.add(
 					{
 					delay: 1200,
 					loading: true,
 					photo: true,
-					content: textThankYou
-					});
-				}
-
-			function ChatBot_Step_8_Error()
-				{
-				homeBot.message.add(
+					content: a
+					}).then(function ()
 					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textError
-					});
-				}
-
-			function ChatBot_Step_9_GladToHelp()
-				{
-				homeBot.message.add(
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", sub_type: "number", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
 					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textGladToHelp
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						ChatBot_Step_11_QueryReport(textInputReportNumberRetry);
+						}
+						else
+						{
+						var reportFound = true;
+
+						if (reportFound==true)
+							{
+							ChatBot_Step_1_Welcome(textInputReportNumberFound);
+							}
+							else
+							{
+							ChatBot_Step_1_Welcome(textInputReportNumberNotFound);
+							}
+						}
 					});
 				}
 
@@ -416,7 +490,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome();
+				ChatBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*
