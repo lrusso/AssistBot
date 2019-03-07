@@ -34,6 +34,6 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 7 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
 | 8 | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
 | 9 | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
-| 10 | Demo Script | Looping checkings for inputted data.
-| 11 | Demo Script | Implemented scrolling chatbot window.
-| 12 | Demo Script | Implemented close button in the chatbot window.
+| 10 | Bot Samples | Looping checkings for inputted data.
+| 11 | Bot Samples | Implemented scrolling chatbot window.
+| 12 | Bot Samples | Implemented close button in the chatbot window.
