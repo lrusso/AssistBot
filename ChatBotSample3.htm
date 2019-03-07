@@ -64,7 +64,7 @@
 				textYes = "S" + String.fromCharCode(237);
 				textNo = "No";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
-				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
+				textInputNameRetry = "Por favor, ingrese su nombre completo.";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
 				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico. Muchas gracias.";
@@ -88,8 +88,8 @@
 				textSuggestion2 = "Try to wait until the battery is dried. Does this solved your problem?";
 				textYes = "Yes";
 				textNo = "No";
-				textInputName = "What is your name?";
-				textInputNameRetry = "Please, input a valid name.";
+				textInputName = "What is your full name?";
+				textInputNameRetry = "Please, input your full name.";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
 				textThankYou = "You reservation was made. Thank you.";
@@ -253,8 +253,15 @@
 						}
 						else
 						{
-						reportName = res.value;
-						ChatBot_Step_6_Email(textInputEmail);
+						if (countWords(res.value)<2)
+							{
+							ChatBot_Step_5_Name(textInputNameRetry);
+							}
+							else
+							{
+							reportName = res.value;
+							ChatBot_Step_6_Email(textInputEmail);
+							}
 						}
 					});
 				}
@@ -397,6 +404,14 @@
 					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 					}
 				return splitStr.join(" ");
+				}
+
+			function countWords(s)
+				{
+				s = s.replace(/(^\s*)|(\s*$)/gi,"");
+				s = s.replace(/[ ]{2,}/gi," ");
+				s = s.replace(/\n /,"\n");
+				return s.split(' ').filter(function(str){return str!="";}).length;
 				}
 
 			window.onload = function()
