@@ -71,8 +71,8 @@
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
 				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del 3 al 13 de Mayo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textNoReservationMade = " no tiene reservada ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
-				textThankYou = "Su reserva se ha realizado. Muchas gracias.";
-				textError = "Error al realizar la reserva. Por favor vuelva a intentarlo en otro momento.";
+				textThankYou = "Su reserva se ha realizado, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textError = "Error al realizar la reserva, por favor vuelva a intentarlo en otro momento. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
 				}
@@ -97,8 +97,8 @@
 				textInputEmailRetry = "Please, input a valid email.";
 				textReservationMade = " has a double room reserved from 3th May until 13th May. What else can I do for you?";
 				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
-				textThankYou = "You reservation was made. Thank you.";
-				textError = "Error while making the reservation. Please try again later.";
+				textThankYou = "You reservation was made, thank you. What else can I do for you?";
+				textError = "Error while making the reservation, please try again later. What else can I do for you?";
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
 				}
@@ -381,24 +381,12 @@
 
 			function ChatBot_Step_9_Thanks()
 				{
-				homeBot.message.add(
-					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textThankYou
-					});
+				ChatBot_Step_1_Welcome(textThankYou);
 				}
 
 			function ChatBot_Step_9_Error()
 				{
-				homeBot.message.add(
-					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textError
-					});
+				ChatBot_Step_1_Welcome(textError);
 				}
 
 			function ChatBot_Step_10_CheckingReservation(a)
