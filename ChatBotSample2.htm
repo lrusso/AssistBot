@@ -33,17 +33,15 @@
 			var textRoomSimple = "";
 			var textRoomDouble = "";
 			var textHowManyDays = "";
-			var textDaysPlaceHolder = "";
 			var textInputName = "";
 			var textInputNameRetry = "";
-			var textInputNamePlaceHolder = "";
 			var textInputEmail = "";
 			var textInputEmailRetry = "";
-			var textInputEmailPlaceHolder = "";
 			var textReservationMade = "";
 			var textNoReservationMade = "";
 			var textThankYou = "";
 			var textError = "";
+			var textSend = "";
 
 			var reservationDate = "";
 			var reservationRoomType = "";
@@ -57,7 +55,7 @@
 				textWelcome = "Hola, soy la asistente virtual del Hotel Ejemplo. &iquest;Qu&eacute; puedo hacer por usted?";
 				textMakeReservation = "Reservar";
 				textCheckReservation = "Consultar reserva";
-				textInputDate = "Seleccione una fecha y presione ENTER.";
+				textInputDate = "Seleccione una fecha.";
 				textInputDateWho = "&iquest;A nombre de qui&eacute;n hizo la reserva?";
 				textInputDateError1 = "La fecha ingresada no puede ser anterior o igual a la fecha actual. Por favor seleccione otra fecha.";
 				textInputDateError2 = "La fecha ingresada no puede ser superior a dos años de la fecha actual. Por favor seleccione otra fecha.";
@@ -66,17 +64,15 @@
 				textRoomSimple = "Simple";
 				textRoomDouble = "Matrimonial";
 				textHowManyDays = "&iquest;Cuantos d&iacute;as desea quedarse?";
-				textDaysPlaceHolder = "- ingrese cantidad de d" + String.fromCharCode(237) +  "as aqu" + String.fromCharCode(237) +  " -";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
 				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
-				textInputNamePlaceHolder = "- escriba su nombre completo aqu" + String.fromCharCode(237) +  " -";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
-				textInputEmailPlaceHolder = "- escriba su correo aqu" + String.fromCharCode(237) +  " -";
 				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del 3 al 13 de Mayo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textNoReservationMade = " no tiene reservada ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textThankYou = "Su reserva se ha realizado. Muchas gracias.";
 				textError = "Error al realizar la reserva. Por favor vuelva a intentarlo en otro momento.";
+				textSend = "Enviar";
 				}
 				else
 				{
@@ -84,7 +80,7 @@
 				textWelcome = "Hello, I'm the virtual assistant at the Example Hotel. What can I do for you?";
 				textMakeReservation = "Reservartion";
 				textCheckReservation = "Check reservation";
-				textInputDate = "Select a date and press ENTER.";
+				textInputDate = "Select a date.";
 				textInputDateWho = "Under what name the reservation was made?";
 				textInputDateError1 = "The date can't be before or equal to the current date. Please select another date.";
 				textInputDateError2 = "The date can't be more than two years after the current date. Please select another date.";
@@ -93,17 +89,15 @@
 				textRoomSimple = "Simple";
 				textRoomDouble = "Double";
 				textHowManyDays = "How many days are you going to stay?";
-				textDaysPlaceHolder = "- write how manys days -";
 				textInputName = "What is your name?";
 				textInputNameRetry = "Please, input a valid name.";
-				textInputNamePlaceHolder = "- write your name here -";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
-				textInputEmailPlaceHolder = "- write your email here -";
 				textReservationMade = " has a double room reserved from 3th May until 13th May. What else can I do for you?";
 				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
 				textThankYou = "You reservation was made. Thank you.";
 				textError = "Error while making the reservation. Please try again later.";
+				textSend = "Send";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
@@ -154,7 +148,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", sub_type: "date"}
+						action: {value: "", sub_type: "date", button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
@@ -257,7 +251,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", sub_type: "number", placeholder: textDaysPlaceHolder}
+						action: {value: "", sub_type: "number", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{
@@ -282,7 +276,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputNamePlaceHolder}
+						action: {value: "", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{
@@ -313,7 +307,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputEmailPlaceHolder}
+						action: {value: "", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{
@@ -410,7 +404,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputNamePlaceHolder}
+						action: {value: "", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{

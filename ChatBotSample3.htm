@@ -35,13 +35,12 @@
 			var textNo = "";
 			var textInputName = "";
 			var textInputNameRetry = "";
-			var textInputNamePlaceHolder = "";
 			var textInputEmail = "";
 			var textInputEmailRetry = "";
-			var textInputEmailPlaceHolder = "";
 			var textThankYou = "";
 			var textError = "";
 			var textGladToHelp = "";
+			var textSend = "";
 
 			var reportDevice = "";
 			var reportProblem = "";
@@ -65,13 +64,12 @@
 				textNo = "No";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
 				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
-				textInputNamePlaceHolder = "- escriba su nombre completo aqu" + String.fromCharCode(237) +  " -";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
-				textInputEmailPlaceHolder = "- escriba su correo aqu" + String.fromCharCode(237) +  " -";
 				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico. Muchas gracias.";
 				textError = "Error al derivar la consulta. Por favor vuelva a intentarlo en otro momento.";
 				textGladToHelp = "Es un gusto poder haber sido de ayuda. Saludos.";
+				textSend = "Enviar";
 				}
 				else
 				{
@@ -90,13 +88,12 @@
 				textNo = "No";
 				textInputName = "What is your name?";
 				textInputNameRetry = "Please, input a valid name.";
-				textInputNamePlaceHolder = "- write your name here -";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
-				textInputEmailPlaceHolder = "- write your email here -";
 				textThankYou = "You reservation was made. Thank you.";
 				textError = "Error while making the reservation. Please try again later.";
 				textGladToHelp = "Es un gusto poder haber sido de ayuda. Saludos.";
+				textSend = "Send";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
@@ -240,7 +237,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputNamePlaceHolder}
+						action: {value: "", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{
@@ -271,7 +268,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputEmailPlaceHolder}
+						action: {value: "", button: {label: textSend}}
 						});
 					}).then(function (res)
 					{

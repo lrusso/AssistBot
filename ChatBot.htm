@@ -24,18 +24,16 @@
 			var textWelcome = "";
 			var textInputName = "";
 			var textInputNameRetry = "";
-			var textInputNamePlaceHolder = "";
 			var textInputEmail = "";
 			var textInputEmailRetry = "";
-			var textInputEmailPlaceHolder = "";
 			var textInputMessage = "";
 			var textInputMessageRetry = "";
-			var textInputMessagePlaceHolder = "";
 			var textTypePress = "";
 			var textTypeWork = "";
 			var textTypeContact = "";
 			var textThankYou = "";
 			var textError = "";
+			var textSend = "";
 
 			var contactType = "";
 			var contactName = "";
@@ -48,18 +46,16 @@
 				textWelcome = "Hola, soy la asistente virtual de este sitio Web. &iquest;Cu&aacute;l es el motivo de su visita?";
 				textInputName = "&iquest;Cu&aacute;l es su nombre?";
 				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
-				textInputNamePlaceHolder = "- escriba su nombre aqu" + String.fromCharCode(237) +  " -";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
-				textInputEmailPlaceHolder = "- escriba su correo aqu" + String.fromCharCode(237) +  " -";
 				textInputMessage = "&iquest;Cu&aacute;l es su mensaje?";
 				textInputMessageRetry = "Por favor, ingrese un mensaje v&aacute;lido.";
-				textInputMessagePlaceHolder = "- escriba su mensaje aqu" + String.fromCharCode(237) +  " -";
 				textTypePress = "Prensa";
 				textTypeWork = "Trabajo";
 				textTypeContact = "Consulta";
 				textThankYou = "Su mensaje ha sido entregado. Muchas gracias.";
 				textError = "Error al enviar el mensaje. Por favor vuelva a intentarlo en otro momento.";
+				textSend = "Enviar";
 				}
 				else
 				{
@@ -67,18 +63,16 @@
 				textWelcome = "Hello, I'm the virtual assistant of this Website. What is the reason of your visit?";
 				textInputName = "What is your name?";
 				textInputNameRetry = "Please, input a valid name.";
-				textInputNamePlaceHolder = "- write your name here -";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
-				textInputEmailPlaceHolder = "- write your email here -";
 				textInputMessage = "What is your message?";
 				textInputMessageRetry = "Please, input a valid message";
-				textInputMessagePlaceHolder = "- write your message here -";
 				textTypePress = "Press";
 				textTypeWork = "Work";
 				textTypeContact = "Contact";
 				textThankYou = "Your message has been delivered. Thank you.";
 				textError = "Error while sending message. Please try again later.";
+				textSend = "Send";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
@@ -125,7 +119,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputNamePlaceHolder}
+						action: {value: "", button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
@@ -156,7 +150,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputEmailPlaceHolder}
+						action: {value: "", button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
@@ -187,7 +181,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", placeholder: textInputMessagePlaceHolder}
+						action: {value: "", button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
