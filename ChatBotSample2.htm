@@ -26,6 +26,7 @@
 			var textCheckReservation = "";
 			var textInputDate = "";
 			var textInputDateWho = "";
+			var textInputDateWhoRetry = "";
 			var textInputDateError1 = "";
 			var textInputDateError2 = "";
 			var textVacancy = "";
@@ -57,7 +58,8 @@
 				textMakeReservation = "Reservar";
 				textCheckReservation = "Consultar reserva";
 				textInputDate = "&iquest;A partir de qu&eacute; fecha desea hacer la reserva?";
-				textInputDateWho = "&iquest;A nombre de qui&eacute;n hizo la reserva?";
+				textInputDateWho = "&iquest;Cu&aacute;l es el nombre completo de la persona que hizo la reserva?";
+				textInputDateWhoRetry = "Por favor, ingrese el nombre completo de la persona que hizo la reserva.";
 				textInputDateError1 = "La fecha ingresada no puede ser anterior o igual a la fecha actual. Por favor seleccione otra fecha.";
 				textInputDateError2 = "La fecha ingresada no puede ser superior a dos años de la fecha actual. Por favor seleccione otra fecha.";
 				textVacancy = "Hay disponibilidad en esa fecha. &iquest;Qu&eacute; tipo de habitaci&oacute;n desea?";
@@ -83,7 +85,8 @@
 				textMakeReservation = "Reservartion";
 				textCheckReservation = "Check reservation";
 				textInputDate = "From which date you want to make the reservation?";
-				textInputDateWho = "Under what name the reservation was made?";
+				textInputDateWho = "What is the full name of the person that did the reservation?";
+				textInputDateWhoRetry = "Please, input the full name of the person that did the reservation.";
 				textInputDateError1 = "The date can't be before or equal to the current date. Please select another date.";
 				textInputDateError2 = "The date can't be more than two years after the current date. Please select another date.";
 				textVacancy = "There is vacancy in that date. What kind of room would you like?";
@@ -410,19 +413,26 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_10_CheckingReservation(textInputNameRetry);
+						ChatBot_Step_10_CheckingReservation(textInputDateWhoRetry);
 						}
 						else
 						{
-						var reserved = true;
-
-						if (reserved==true)
+						if (countWords(res.value)<2)
 							{
-							ChatBot_Step_1_Welcome(res.value + textReservationMade);
+							ChatBot_Step_10_CheckingReservation(textInputDateWhoRetry);
 							}
 							else
 							{
-							ChatBot_Step_1_Welcome(res.value + textNoReservationMade);
+							var reserved = true;
+
+							if (reserved==true)
+								{
+								ChatBot_Step_1_Welcome(res.value + textReservationMade);
+								}
+								else
+								{
+								ChatBot_Step_1_Welcome(res.value + textNoReservationMade);
+								}
 							}
 						}
 					});
