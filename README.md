@@ -6,9 +6,9 @@
 
 | #  | BOT URL  | BOT DETAILS |
 | :------------: |:---------------:| :-----|
-| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Asking and sending user information.
-| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Making a hotel reservation.
-| 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Technical Support.
+| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Web receptionist.
+| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Hotel receptionist.
+| 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Tech Support receptionist.
 
 ## Sending the data
 
