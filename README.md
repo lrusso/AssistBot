@@ -29,11 +29,12 @@ There is a ChatBot.php file sample in this repository that shows how the data ma
 | 2 | BotUI Core | Prevents from inputting HTML content.
 | 3 | BotUI Core | Prevents from automatically showing the response of an action button.
 | 4 | BotUI Core | Agent and Human icons are loaded from the CSS file.
-| 5 | BotUI Style | Bugfixed when inputting a blank space.
-| 6 | BotUI Style | Bugfixed that the icons inherits the box-sizing property.
-| 7 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
-| 8 | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
-| 9 | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
-| 10 | Bot Samples | Looping checkings for inputted data.
-| 11 | Bot Samples | Implemented scrolling chatbot window.
-| 12 | Bot Samples | Implemented close button in the chatbot window.
+| 5 | BotUI Core | Send button by default and with a different CSS reference.
+| 6 | BotUI Style | Bugfixed when inputting a blank space.
+| 7 | BotUI Style | Bugfixed that the icons inherits the box-sizing property.
+| 8 | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
+| 9 | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
+| 10 | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
+| 11 | Bot Samples | Looping checkings for inputted data.
+| 12 | Bot Samples | Implemented scrolling chatbot window.
+| 13 | Bot Samples | Implemented close button in the chatbot window.
