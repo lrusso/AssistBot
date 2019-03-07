@@ -40,6 +40,7 @@
 			var textThankYou = "";
 			var textError = "";
 			var textGladToHelp = "";
+			var textPlaceHolder = "";
 			var textSend = "";
 
 			var reportDevice = "";
@@ -69,6 +70,7 @@
 				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico. Muchas gracias.";
 				textError = "Error al derivar la consulta. Por favor vuelva a intentarlo en otro momento.";
 				textGladToHelp = "Fue un gusto haber sido de ayuda. Saludos.";
+				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
 				}
 				else
@@ -93,6 +95,8 @@
 				textThankYou = "You reservation was made. Thank you.";
 				textError = "Error while making the reservation. Please try again later.";
 				textGladToHelp = "It was a pleasure to help you. Best regards.";
+				textPlaceHolder = "Escriba un mensaje";
+				textPlaceHolder = "Write a message";
 				textSend = "Send";
 				}
 
@@ -237,7 +241,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", button: {label: textSend}}
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
@@ -268,7 +272,7 @@
 					return homeBot.action.text(
 						{
 						delay: 800,
-						action: {value: "", button: {label: textSend}}
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
 						});
 					}).then(function (res)
 					{
