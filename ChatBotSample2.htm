@@ -66,7 +66,7 @@
 				textRoomDouble = "Matrimonial";
 				textHowManyDays = "&iquest;Cuantos d&iacute;as desea quedarse?";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
-				textInputNameRetry = "Por favor, ingrese un nombre v&aacute;lido.";
+				textInputNameRetry = "Por favor, ingrese un nombre completo.";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
 				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del 3 al 13 de Mayo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
@@ -91,8 +91,8 @@
 				textRoomSimple = "Simple";
 				textRoomDouble = "Double";
 				textHowManyDays = "How many days are you going to stay?";
-				textInputName = "What is your name?";
-				textInputNameRetry = "Please, input a valid name.";
+				textInputName = "What is your full name?";
+				textInputNameRetry = "Please, input your full name.";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
 				textReservationMade = " has a double room reserved from 3th May until 13th May. What else can I do for you?";
@@ -291,8 +291,15 @@
 						}
 						else
 						{
-						reservationName = res.value;
-						ChatBot_Step_7_Email(textInputEmail);
+						if (countWords(res.value)<2)
+							{
+							ChatBot_Step_6_Name(textInputNameRetry);
+							}
+							else
+							{
+							reservationName = res.value;
+							ChatBot_Step_7_Email(textInputEmail);
+							}
 						}
 					});
 				}
@@ -468,6 +475,14 @@
 					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
 					}
 				return splitStr.join(" ");
+				}
+
+			function countWords(s)
+				{
+				s = s.replace(/(^\s*)|(\s*$)/gi,"");
+				s = s.replace(/[ ]{2,}/gi," ");
+				s = s.replace(/\n /,"\n");
+				return s.split(' ').filter(function(str){return str!="";}).length;
 				}
 
 			window.onload = function()
