@@ -195,6 +195,10 @@ var currentExpression = 0;
 var newExpression = 0;
 var morphExpressions = ["expression", "anger","sad", "disgust", "fear", "surprise", "smileClose", "smileOpen"];
 
+var counter = 0;
+var surpriseFace = false;
+var happyFace = false;
+
 function updateAnimation()
 	{
 	if(fullLoaded)
@@ -203,9 +207,30 @@ function updateAnimation()
 		THREE.AnimationHandler.update( delta*0.5 );
 
 		count[0]++;
+
+		if (surpriseFace==true)
+			{
+			counter++;
+			}
+
 		if(count[0]<=10)blinkEyes(count[0]);
 		else if(count[0]<=20)blinkEyes(20-count[0]);
 		else if(count[0] == 200)count[0]=0;
+
+		if (surpriseFace==true)
+			{
+			if(counter==5)
+				{
+				newExpression=5;
+				fullMorph(morphExpressions[newExpression], 1);
+				}
+			else if (counter>=75)
+				{
+				counter = 0;
+				surpriseFace = false;
+				fullMorph(morphExpressions[newExpression], 0);
+				}
+			}
 
 		if(startSequence)
 			{
@@ -393,7 +418,7 @@ function speak(a)
 	var utterThis = new SpeechSynthesisUtterance(a);
 	utterThis.lang = "es-MX";
 
-	textToSpeech.speak(utterThis);
+	//textToSpeech.speak(utterThis);
 
 	utterThis.onstart = function (event)
 		{
@@ -417,4 +442,9 @@ function speak(a)
 			prevWord="";
 			}
 		};
+	}
+
+function surpriseFaceEnabled()
+	{
+	surpriseFace = true;
 	}
