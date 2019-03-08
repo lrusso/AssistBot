@@ -125,7 +125,13 @@ function loadSea3d()
 		center = new THREE.Vector3();
 		center.y = 40.5+((100-cam.distance)/3.5);
 		moveCamera();
-		
+
+		eyesTarget.position.set(3.82+(2*0.15), (-2*0.15), 10);
+		var midL = eyesTarget.position.clone();
+		var midR = midL.clone();
+		eyeLeft.lookAt(midL.add(new THREE.Vector3(0,-2,0)));
+		eyeRight.lookAt(midR.add(new THREE.Vector3(0,2,0)));
+
 		var mName;
 		for (var j=0; j < m.geometry.morphTargets.length; j++)
 			{
