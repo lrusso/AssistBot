@@ -195,9 +195,10 @@ var currentExpression = 0;
 var newExpression = 0;
 var morphExpressions = ["expression", "anger","sad", "disgust", "fear", "surprise", "smileClose", "smileOpen"];
 
-var counter = 0;
-var surpriseFace = false;
-var happyFace = false;
+var counter1 = 0;
+var counter2 = 0;
+var surpriseFaceEnabled = false;
+var happyFaceEnabled = false;
 
 function updateAnimation()
 	{
@@ -208,26 +209,46 @@ function updateAnimation()
 
 		count[0]++;
 
-		if (surpriseFace==true)
+		if (surpriseFaceEnabled==true)
 			{
-			counter++;
+			counter1++;
+			}
+
+		if (happyFaceEnabled==true)
+			{
+			counter2++;
 			}
 
 		if(count[0]<=10)blinkEyes(count[0]);
 		else if(count[0]<=20)blinkEyes(20-count[0]);
 		else if(count[0] == 200)count[0]=0;
 
-		if (surpriseFace==true)
+		if (surpriseFaceEnabled==true)
 			{
-			if(counter==5)
+			if(counter1==5)
 				{
 				newExpression=5;
 				fullMorph(morphExpressions[newExpression], 1);
 				}
-			else if (counter>=75)
+			else if (counter1>=75)
 				{
-				counter = 0;
-				surpriseFace = false;
+				counter1 = 0;
+				surpriseFaceEnabled = false;
+				fullMorph(morphExpressions[newExpression], 0);
+				}
+			}
+
+		if (happyFaceEnabled==true)
+			{
+			if(counter2==5)
+				{
+				newExpression=7;
+				fullMorph(morphExpressions[newExpression], 1);
+				}
+			else if (counter2>=250)
+				{
+				counter2 = 0;
+				happyFaceEnabled = false;
 				fullMorph(morphExpressions[newExpression], 0);
 				}
 			}
@@ -444,7 +465,12 @@ function speak(a)
 		};
 	}
 
-function surpriseFaceEnabled()
+function surpriseFace()
 	{
-	surpriseFace = true;
+	surpriseFaceEnabled = true;
+	}
+
+function happyFace()
+	{
+	happyFaceEnabled = true;
 	}

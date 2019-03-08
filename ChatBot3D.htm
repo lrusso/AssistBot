@@ -138,7 +138,7 @@
 
 					if (res.value.trim()=="")
 						{
-						surpriseFaceEnabled();
+						surpriseFace();
 						ChatBot_Step_2_Name(textInputNameRetry);
 						}
 						else
@@ -176,7 +176,7 @@
 						}
 						else
 						{
-						surpriseFaceEnabled();
+						surpriseFace();
 						ChatBot_Step_3_Email(textInputEmailRetry);
 						}
 					});
@@ -260,6 +260,7 @@
 
 			function ChatBot_Step_6_Thanks()
 				{
+				happyFace();
 				ChatBot_Step_1_Welcome(textThankYou);
 				}
 
