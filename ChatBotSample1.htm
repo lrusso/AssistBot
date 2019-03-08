@@ -54,8 +54,8 @@
 				textTypePress = "Prensa";
 				textTypeWork = "Trabajo";
 				textTypeContact = "Consulta";
-				textThankYou = "Su mensaje ha sido entregado. Muchas gracias.";
-				textError = "Error al enviar el mensaje. Por favor vuelva a intentarlo en otro momento.";
+				textThankYou = "Su mensaje ha sido entregado, muchas gracias. &iquest;Lo puedo ayudar con otro tema?";
+				textError = "Error al enviar el mensaje, por favor vuelva a intentarlo en otro momento. &iquest;Lo puedo ayudar con otro tema?";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
 				}
@@ -72,22 +72,22 @@
 				textTypePress = "Press";
 				textTypeWork = "Work";
 				textTypeContact = "Contact";
-				textThankYou = "Your message has been delivered. Thank you.";
-				textError = "Error while sending message. Please try again later.";
+				textThankYou = "Your message has been delivered, thank you. Can I help you with another subject?";
+				textError = "Error while sending message, please try again later. Can I help you with another subject?";
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
 				}
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome()
+			function ChatBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
 					delay: 1200,
 					loading: true,
 					photo: true,
-					content: textWelcome
+					content: a
 					}).then(function ()
 					{
 					return homeBot.action.button(
@@ -248,24 +248,12 @@
 
 			function ChatBot_Step_6_Thanks()
 				{
-				homeBot.message.add(
-					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textThankYou
-					});
+				ChatBot_Step_1_Welcome(textThankYou);
 				}
 
 			function ChatBot_Step_6_Error()
 				{
-				homeBot.message.add(
-					{
-					delay: 1200,
-					loading: true,
-					photo: true,
-					content: textError
-					});
+				ChatBot_Step_1_Welcome(textError);
 				}
 
 			function minimize()
@@ -302,7 +290,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome();
+				ChatBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*
