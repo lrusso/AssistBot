@@ -9,6 +9,7 @@
 | 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Web receptionist.
 | 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Hotel receptionist.
 | 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Tech Support receptionist.
+| 4 | https://lrusso.github.io/assistbot/ChatBot3D.htm | 3D Bot Web receptionist.
 
 ## Sending the data
 
