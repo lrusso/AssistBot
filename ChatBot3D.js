@@ -84,7 +84,7 @@ function loadSea3d()
 			m.material = lowMaterial[i];
 			
 			if(m.name == "eyeL_lo" || m.name == "cils" || m.name == "hair" || m.name == "teethUpper" || m.name == "teethLower" ) m.material.transparent = true;
-			if(m.name == "necklace" ) m.material.color.setHex(0x2e3032);
+			if(m.name == "necklace" ) m.material.color.setHex(0x000000);
 			if(m.name == "bodyLow2" ) m.visible = false;
 			headMeshs[i] = m;
 			}
