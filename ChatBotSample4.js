@@ -891,7 +891,7 @@ function loadSea3d()
 		}
 
 	loader.parser = THREE.SEA3D.DEFAULT;
-	loader.load("ChatBotSample4.dat");
+	loader.load("ChatBotSample4.sea");
 	}
 
 function loadSea3dBody()
