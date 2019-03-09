@@ -170,7 +170,7 @@
           _handleAction(this.action.text.value);
     			_actionResolve({
             type: 'text',
-            value: this.action.text.value
+            value: onlyText(this.action.text.value)
           });
     			this.action.text.value = '';
     		},
