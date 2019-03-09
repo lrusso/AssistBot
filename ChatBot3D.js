@@ -439,6 +439,7 @@ function speak(a)
 	var utterThis = new SpeechSynthesisUtterance(a);
 	utterThis.lang = "es-MX";
 
+	textToSpeech.cancel();
 	textToSpeech.speak(utterThis);
 
 	utterThis.onstart = function (event)
