@@ -22,7 +22,7 @@ There are two methods for posting data in the samples:
 
 There is a ChatBot.php file sample in this repository that shows how the data may be received.
 
-## Based on BotUI with a few updates:
+## Based on BotUI with several bugfixes and updates
 
 | UPDATE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
