@@ -2,7 +2,7 @@
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/assistbot/master/ChatBot.png)
 
-## Bot samples:
+## Bot samples
 
 | #  | BOT URL  | BOT DETAILS |
 | :------------: |:---------------:| :-----|
