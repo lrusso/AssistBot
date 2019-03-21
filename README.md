@@ -1,4 +1,4 @@
-# AssistBot - JavaScript Assistants Bots for Websites
+# AssistBot - JavaScript Bots Assistants for Websites
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/AssistBot/master/AssistBot.png)
 
