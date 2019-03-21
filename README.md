@@ -1,6 +1,6 @@
 # AssistBot - JavaScript Chatbot Assistant for Websites
 
-![alt screen](https://raw.githubusercontent.com/lrusso/AssistBot/master/ChatBot.png)
+![alt screen](https://raw.githubusercontent.com/lrusso/AssistBot/master/AssistBot.png)
 
 ## Bot samples
 
