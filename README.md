@@ -20,7 +20,7 @@ There are two methods for posting data in the samples:
 
 ## Receiving the data
 
-There is a ChatBot.php file sample in this repository that shows how the data may be received.
+There is a AssistBot.php file sample in this repository that shows how the data may be received.
 
 ## Based on BotUI with several bugfixes and updates
 
