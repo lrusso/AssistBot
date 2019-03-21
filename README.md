@@ -6,10 +6,10 @@
 
 | #  | BOT URL  | BOT DETAILS |
 | :------------: |:---------------:| :-----|
-| 1 | https://lrusso.github.io/assistbot/ChatBotSample1.htm | Web receptionist.
-| 2 | https://lrusso.github.io/assistbot/ChatBotSample2.htm | Hotel receptionist.
-| 3 | https://lrusso.github.io/assistbot/ChatBotSample3.htm | Tech Support receptionist.
-| 4 | https://lrusso.github.io/assistbot/ChatBotSample4.htm | 3D Talking Bot Web receptionist.
+| 1 | https://lrusso.github.io/AssistBot/ChatBotSample1.htm | Web receptionist.
+| 2 | https://lrusso.github.io/AssistBot/ChatBotSample2.htm | Hotel receptionist.
+| 3 | https://lrusso.github.io/AssistBot/ChatBotSample3.htm | Tech Support receptionist.
+| 4 | https://lrusso.github.io/AssistBot/ChatBotSample4.htm | 3D Talking Bot Web receptionist.
 
 ## Sending the data
 
