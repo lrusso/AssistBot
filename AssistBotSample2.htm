@@ -2,21 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>ChatBot | Demo</title>
+		<title>AssistBot | Demo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="ChatBot.css" type="text/css">
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
 	</head>
 	<body style="background-color:grey;">
-		<div class="botui-app-container" id="ChatBot">
+		<div class="botui-app-container" id="AssistBot">
 			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename"></span><div class="botui-closeicon" id="botui-closeicon"></div></div>
 			<div class="botui-scroller" id="botui-scroller">
 				<bot-ui></bot-ui>
 			</div>
 		</div>
-		<script src="ChatBot.min.js"></script>
+		<script src="AssistBot.min.js"></script>
 		<script>
 
-			var homeBot = BotUI("ChatBot");
+			var homeBot = BotUI("AssistBot");
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
@@ -108,7 +108,7 @@
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome(a)
+			function AssistBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
@@ -132,16 +132,16 @@
 
 					if(res.value=="make")
 						{
-						ChatBot_Step_2_Date(textInputDate);
+						AssistBot_Step_2_Date(textInputDate);
 						}
 						else
 						{
-						ChatBot_Step_10_CheckingReservation(textInputDateWho);
+						AssistBot_Step_10_CheckingReservation(textInputDateWho);
 						}
 					});
 				}
 
-			function ChatBot_Step_2_Date(a)
+			function AssistBot_Step_2_Date(a)
 				{
 				homeBot.message.add(
 					{
@@ -183,19 +183,19 @@
 
 					if (selectedYear<currentYear) // IF THE SELECTED YEAR IS BEFORE THE CURRENT YEAR
 						{
-						ChatBot_Step_2_Date(textInputDateError1);
+						AssistBot_Step_2_Date(textInputDateError1);
 						}
 					else if (selectedYear>currentYear+1) // IF THE SELECTED DATE IS MORE THAN TWO YEARS AFTER THE CURRENT DATE
 						{
-						ChatBot_Step_2_Date(textInputDateError2);
+						AssistBot_Step_2_Date(textInputDateError2);
 						}
 					else if (isNaN(selectedYear)) // IF THE SELECTED YEAR DOESN'T EXISTS
 						{
-						ChatBot_Step_2_Date(textInputDateError2);
+						AssistBot_Step_2_Date(textInputDateError2);
 						}
 					else if (selectedDate<currentDate) // IF THE SELECTED DATE IS BEFORE CURRENT DATE
 						{
-						ChatBot_Step_2_Date(textInputDateError1);
+						AssistBot_Step_2_Date(textInputDateError1);
 						}
 						else
 						{
@@ -206,17 +206,17 @@
 						// IF THERE IS ANY VACANCY
 						if (vacancy == true)
 							{
-							ChatBot_Step_3_RoomType(textVacancy);
+							AssistBot_Step_3_RoomType(textVacancy);
 							}
 							else
 							{
-							ChatBot_Step_2_Date(textNoVacancy);
+							AssistBot_Step_2_Date(textNoVacancy);
 							}
 						}
 					});
 				}
 
-			function ChatBot_Step_3_RoomType(a)
+			function AssistBot_Step_3_RoomType(a)
 				{
 				homeBot.message.add(
 					{
@@ -240,11 +240,11 @@
 
 					reservationRoomType = res.value;
 
-					ChatBot_Step_5_Days(textHowManyDays);
+					AssistBot_Step_5_Days(textHowManyDays);
 					});
 				}
 
-			function ChatBot_Step_5_Days(a)
+			function AssistBot_Step_5_Days(a)
 				{
 				homeBot.message.add(
 					{
@@ -265,11 +265,11 @@
 
 					reservationDays = res.value;
 
-					ChatBot_Step_6_Name(textInputName);
+					AssistBot_Step_6_Name(textInputName);
 					});
 				}
 
-			function ChatBot_Step_6_Name(a)
+			function AssistBot_Step_6_Name(a)
 				{
 				homeBot.message.add(
 					{
@@ -290,24 +290,24 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_6_Name(textInputNameRetry);
+						AssistBot_Step_6_Name(textInputNameRetry);
 						}
 						else
 						{
 						if (countWords(res.value)<2)
 							{
-							ChatBot_Step_6_Name(textInputNameRetry);
+							AssistBot_Step_6_Name(textInputNameRetry);
 							}
 							else
 							{
 							reservationName = res.value;
-							ChatBot_Step_7_Email(textInputEmail);
+							AssistBot_Step_7_Email(textInputEmail);
 							}
 						}
 					});
 				}
 
-			function ChatBot_Step_7_Email(a)
+			function AssistBot_Step_7_Email(a)
 				{
 				homeBot.message.add(
 					{
@@ -329,16 +329,16 @@
 					if (validateEmail(res.value)==true)
 						{
 						reservationEmail = res.value;
-						ChatBot_Step_8_Posting();
+						AssistBot_Step_8_Posting();
 						}
 						else
 						{
-						ChatBot_Step_7_Email(textInputEmailRetry);
+						AssistBot_Step_7_Email(textInputEmailRetry);
 						}
 					});
 				}
 
-			function ChatBot_Step_8_Posting()
+			function AssistBot_Step_8_Posting()
 				{
 				reservationEmail = reservationEmail.toLowerCase();
 				reservationName = normalizeName(reservationName);
@@ -359,8 +359,8 @@
 						{
 						}
 					};
-				http.onerror = function (){ChatBot_Step_6_Error();};
-				http.ontimeout = function (e){ChatBot_Step_6_Error();};
+				http.onerror = function (){AssistBot_Step_6_Error();};
+				http.ontimeout = function (e){AssistBot_Step_6_Error();};
 				http.send(params);
 				*/
 
@@ -369,30 +369,30 @@
 				var myImageSubmittter = document.createElement("img");
 				myImageSubmittter.onload = function()
 					{
-					ChatBot_Step_6_Thanks();
+					AssistBot_Step_6_Thanks();
 					};
 				myImageSubmittter.onerror = function()
 					{
-					ChatBot_Step_6_Error();
+					AssistBot_Step_6_Error();
 					};
 				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
 				*/
 
 				// FOR DEMO ONLY
-				ChatBot_Step_9_Thanks();
+				AssistBot_Step_9_Thanks();
 				}
 
-			function ChatBot_Step_9_Thanks()
+			function AssistBot_Step_9_Thanks()
 				{
-				ChatBot_Step_1_Welcome(textThankYou);
+				AssistBot_Step_1_Welcome(textThankYou);
 				}
 
-			function ChatBot_Step_9_Error()
+			function AssistBot_Step_9_Error()
 				{
-				ChatBot_Step_1_Welcome(textError);
+				AssistBot_Step_1_Welcome(textError);
 				}
 
-			function ChatBot_Step_10_CheckingReservation(a)
+			function AssistBot_Step_10_CheckingReservation(a)
 				{
 				homeBot.message.add(
 					{
@@ -413,13 +413,13 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_10_CheckingReservation(textInputDateWhoRetry);
+						AssistBot_Step_10_CheckingReservation(textInputDateWhoRetry);
 						}
 						else
 						{
 						if (countWords(res.value)<2)
 							{
-							ChatBot_Step_10_CheckingReservation(textInputDateWhoRetry);
+							AssistBot_Step_10_CheckingReservation(textInputDateWhoRetry);
 							}
 							else
 							{
@@ -427,11 +427,11 @@
 
 							if (reserved==true)
 								{
-								ChatBot_Step_1_Welcome(res.value + textReservationMade);
+								AssistBot_Step_1_Welcome(res.value + textReservationMade);
 								}
 								else
 								{
-								ChatBot_Step_1_Welcome(res.value + textNoReservationMade);
+								AssistBot_Step_1_Welcome(res.value + textNoReservationMade);
 								}
 							}
 						}
@@ -440,16 +440,16 @@
 
 			function minimize()
 				{
-				if (document.getElementById("ChatBot").style.overflowY == "hidden")
+				if (document.getElementById("AssistBot").style.overflowY == "hidden")
 					{
-					document.getElementById("ChatBot").style.overflowY = "visible"; 
-					document.getElementById("ChatBot").style.height = "auto";
+					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.height = "auto";
 					document.getElementById("botui-closeicon").style.display = "block";
 					}
 					else
 					{
-					document.getElementById("ChatBot").style.overflowY = "hidden"; 
-					document.getElementById("ChatBot").style.height = "30" + "px";
+					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.height = "30" + "px";
 					document.getElementById("botui-closeicon").style.display = "none";
 					}
 				}
@@ -485,7 +485,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome(textWelcome);
+				AssistBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*

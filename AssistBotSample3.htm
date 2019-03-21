@@ -2,21 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>ChatBot | Demo</title>
+		<title>AssistBot | Demo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="ChatBot.css" type="text/css">
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
 	</head>
 	<body style="background-color:grey;">
-		<div class="botui-app-container" id="ChatBot">
+		<div class="botui-app-container" id="AssistBot">
 			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename"></span><div class="botui-closeicon" id="botui-closeicon"></div></div>
 			<div class="botui-scroller" id="botui-scroller">
 				<bot-ui></bot-ui>
 			</div>
 		</div>
-		<script src="ChatBot.min.js"></script>
+		<script src="AssistBot.min.js"></script>
 		<script>
 
-			var homeBot = BotUI("ChatBot");
+			var homeBot = BotUI("AssistBot");
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
@@ -123,7 +123,7 @@
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome(a)
+			function AssistBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
@@ -147,15 +147,15 @@
 
 					if (res.value==textNewReport)
 						{
-						ChatBot_Step_2_DeviceType();
+						AssistBot_Step_2_DeviceType();
 						}
 					else if(res.value==textQueryReport)
 						{
-						ChatBot_Step_11_QueryReport(textInputReportNumber);
+						AssistBot_Step_11_QueryReport(textInputReportNumber);
 						}
 					});
 				}
-			function ChatBot_Step_2_DeviceType()
+			function AssistBot_Step_2_DeviceType()
 				{
 				homeBot.message.add(
 					{
@@ -179,12 +179,12 @@
 
 					reportDevice = res.value;
 
-					ChatBot_Step_3_Question1();
+					AssistBot_Step_3_Question1();
 
 					});
 				}
 
-			function ChatBot_Step_3_Question1()
+			function AssistBot_Step_3_Question1()
 				{
 				homeBot.message.add(
 					{
@@ -210,12 +210,12 @@
 
 					reportProblem = res.value;
 
-					ChatBot_Step_4_Suggestion1();
+					AssistBot_Step_4_Suggestion1();
 
 					});
 				}
 
-			function ChatBot_Step_4_Suggestion1()
+			function AssistBot_Step_4_Suggestion1()
 				{
 				homeBot.message.add(
 					{
@@ -239,16 +239,16 @@
 
 					if (res.value=="no")
 						{
-						ChatBot_Step_5_Suggestion2();
+						AssistBot_Step_5_Suggestion2();
 						}
 						else
 						{
-						ChatBot_Step_10_GladToHelp();
+						AssistBot_Step_10_GladToHelp();
 						}
 					});
 				}
 
-			function ChatBot_Step_5_Suggestion2(a)
+			function AssistBot_Step_5_Suggestion2(a)
 				{
 				homeBot.message.add(
 					{
@@ -272,16 +272,16 @@
 
 					if (res.value=="no")
 						{
-						ChatBot_Step_6_Name(textInputName);
+						AssistBot_Step_6_Name(textInputName);
 						}
 						else
 						{
-						ChatBot_Step_10_GladToHelp();
+						AssistBot_Step_10_GladToHelp();
 						}
 					});
 				}
 
-			function ChatBot_Step_6_Name(a)
+			function AssistBot_Step_6_Name(a)
 				{
 				homeBot.message.add(
 					{
@@ -302,24 +302,24 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_6_Name(textInputNameRetry);
+						AssistBot_Step_6_Name(textInputNameRetry);
 						}
 						else
 						{
 						if (countWords(res.value)<2)
 							{
-							ChatBot_Step_6_Name(textInputNameRetry);
+							AssistBot_Step_6_Name(textInputNameRetry);
 							}
 							else
 							{
 							reportName = res.value;
-							ChatBot_Step_7_Email(textInputEmail);
+							AssistBot_Step_7_Email(textInputEmail);
 							}
 						}
 					});
 				}
 
-			function ChatBot_Step_7_Email(a)
+			function AssistBot_Step_7_Email(a)
 				{
 				homeBot.message.add(
 					{
@@ -341,16 +341,16 @@
 					if (validateEmail(res.value)==true)
 						{
 						reportEmail = res.value;
-						ChatBot_Step_8_Posting();
+						AssistBot_Step_8_Posting();
 						}
 						else
 						{
-						ChatBot_Step_7_Email(textInputEmailRetry);
+						AssistBot_Step_7_Email(textInputEmailRetry);
 						}
 					});
 				}
 
-			function ChatBot_Step_8_Posting()
+			function AssistBot_Step_8_Posting()
 				{
 				reportEmail = reportEmail.toLowerCase();
 				reportName = normalizeName(reportName);
@@ -371,8 +371,8 @@
 						{
 						}
 					};
-				http.onerror = function (){ChatBot_Step_6_Error();};
-				http.ontimeout = function (e){ChatBot_Step_6_Error();};
+				http.onerror = function (){AssistBot_Step_6_Error();};
+				http.ontimeout = function (e){AssistBot_Step_6_Error();};
 				http.send(params);
 				*/
 
@@ -381,35 +381,35 @@
 				var myImageSubmittter = document.createElement("img");
 				myImageSubmittter.onload = function()
 					{
-					ChatBot_Step_6_Thanks();
+					AssistBot_Step_6_Thanks();
 					};
 				myImageSubmittter.onerror = function()
 					{
-					ChatBot_Step_6_Error();
+					AssistBot_Step_6_Error();
 					};
 				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
 				*/
 
 				// FOR DEMO ONLY
-				ChatBot_Step_9_Thanks();
+				AssistBot_Step_9_Thanks();
 				}
 
-			function ChatBot_Step_9_Thanks()
+			function AssistBot_Step_9_Thanks()
 				{
-				ChatBot_Step_1_Welcome(textThankYou);
+				AssistBot_Step_1_Welcome(textThankYou);
 				}
 
-			function ChatBot_Step_9_Error()
+			function AssistBot_Step_9_Error()
 				{
-				ChatBot_Step_1_Welcome(textError);
+				AssistBot_Step_1_Welcome(textError);
 				}
 
-			function ChatBot_Step_10_GladToHelp()
+			function AssistBot_Step_10_GladToHelp()
 				{
-				ChatBot_Step_1_Welcome(textGladToHelp);
+				AssistBot_Step_1_Welcome(textGladToHelp);
 				}
 
-			function ChatBot_Step_11_QueryReport(a)
+			function AssistBot_Step_11_QueryReport(a)
 				{
 				homeBot.message.add(
 					{
@@ -430,7 +430,7 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_11_QueryReport(textInputReportNumberRetry);
+						AssistBot_Step_11_QueryReport(textInputReportNumberRetry);
 						}
 						else
 						{
@@ -438,11 +438,11 @@
 
 						if (reportFound==true)
 							{
-							ChatBot_Step_1_Welcome(textInputReportNumberFound);
+							AssistBot_Step_1_Welcome(textInputReportNumberFound);
 							}
 							else
 							{
-							ChatBot_Step_1_Welcome(textInputReportNumberNotFound);
+							AssistBot_Step_1_Welcome(textInputReportNumberNotFound);
 							}
 						}
 					});
@@ -450,16 +450,16 @@
 
 			function minimize()
 				{
-				if (document.getElementById("ChatBot").style.overflowY == "hidden")
+				if (document.getElementById("AssistBot").style.overflowY == "hidden")
 					{
-					document.getElementById("ChatBot").style.overflowY = "visible"; 
-					document.getElementById("ChatBot").style.height = "auto";
+					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.height = "auto";
 					document.getElementById("botui-closeicon").style.display = "block";
 					}
 					else
 					{
-					document.getElementById("ChatBot").style.overflowY = "hidden"; 
-					document.getElementById("ChatBot").style.height = "30" + "px";
+					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.height = "30" + "px";
 					document.getElementById("botui-closeicon").style.display = "none";
 					}
 				}
@@ -490,7 +490,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome(textWelcome);
+				AssistBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*

@@ -2,21 +2,21 @@
 <html lang="en">
 	<head>
 		<meta charset="UTF-8">
-		<title>ChatBot | Demo</title>
+		<title>AssistBot | Demo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="stylesheet" href="ChatBot.css" type="text/css">
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
 	</head>
 	<body style="background-color:grey;">
-		<div class="botui-app-container" id="ChatBot">
+		<div class="botui-app-container" id="AssistBot">
 			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename"></span><div class="botui-closeicon" id="botui-closeicon"></div></div>
 			<div class="botui-scroller" id="botui-scroller">
 				<bot-ui></bot-ui>
 			</div>
 		</div>
-		<script src="ChatBot.min.js"></script>
+		<script src="AssistBot.min.js"></script>
 		<script>
 
-			var homeBot = BotUI("ChatBot");
+			var homeBot = BotUI("AssistBot");
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
 
@@ -80,7 +80,7 @@
 
 			document.getElementById("botui-titlename").innerHTML = textTitle;
 
-			function ChatBot_Step_1_Welcome(a)
+			function AssistBot_Step_1_Welcome(a)
 				{
 				homeBot.message.add(
 					{
@@ -105,11 +105,11 @@
 
 					contactType = res.value;
 
-					ChatBot_Step_2_Name(textInputName);
+					AssistBot_Step_2_Name(textInputName);
 					});
 				}
 
-			function ChatBot_Step_2_Name(a)
+			function AssistBot_Step_2_Name(a)
 				{
 				homeBot.message.add(
 					{
@@ -130,17 +130,17 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_2_Name(textInputNameRetry);
+						AssistBot_Step_2_Name(textInputNameRetry);
 						}
 						else
 						{
 						contactName = res.value;
-						ChatBot_Step_3_Email(textInputEmail);
+						AssistBot_Step_3_Email(textInputEmail);
 						}
 					});
 				}
 
-			function ChatBot_Step_3_Email(a)
+			function AssistBot_Step_3_Email(a)
 				{
 				homeBot.message.add(
 					{
@@ -162,16 +162,16 @@
 					if (validateEmail(res.value)==true)
 						{
 						contactEmail = res.value;
-						ChatBot_Step_4_Message(textInputMessage);
+						AssistBot_Step_4_Message(textInputMessage);
 						}
 						else
 						{
-						ChatBot_Step_3_Email(textInputEmailRetry);
+						AssistBot_Step_3_Email(textInputEmailRetry);
 						}
 					});
 				}
 
-			function ChatBot_Step_4_Message(a)
+			function AssistBot_Step_4_Message(a)
 				{
 				homeBot.message.add(
 					{
@@ -192,17 +192,17 @@
 
 					if (res.value.trim()=="")
 						{
-						ChatBot_Step_4_Message(textInputMessageRetry);
+						AssistBot_Step_4_Message(textInputMessageRetry);
 						}
 						else
 						{
 						contactMessage = res.value;
-						ChatBot_Step_5_Posting();
+						AssistBot_Step_5_Posting();
 						}
 					});
 				}
 
-			function ChatBot_Step_5_Posting()
+			function AssistBot_Step_5_Posting()
 				{
 				contactEmail = contactEmail.toLowerCase();
 				contactName = normalizeName(contactName);
@@ -223,8 +223,8 @@
 						{
 						}
 					};
-				http.onerror = function (){ChatBot_Step_6_Error();};
-				http.ontimeout = function (e){ChatBot_Step_6_Error();};
+				http.onerror = function (){AssistBot_Step_6_Error();};
+				http.ontimeout = function (e){AssistBot_Step_6_Error();};
 				http.send(params);
 				*/
 
@@ -233,41 +233,41 @@
 				var myImageSubmittter = document.createElement("img");
 				myImageSubmittter.onload = function()
 					{
-					ChatBot_Step_6_Thanks();
+					AssistBot_Step_6_Thanks();
 					};
 				myImageSubmittter.onerror = function()
 					{
-					ChatBot_Step_6_Error();
+					AssistBot_Step_6_Error();
 					};
 				myImageSubmittter.setAttribute("src", myUrl + "?" + params);
 				*/
 
 				// FOR DEMO ONLY
-				ChatBot_Step_6_Thanks();
+				AssistBot_Step_6_Thanks();
 				}
 
-			function ChatBot_Step_6_Thanks()
+			function AssistBot_Step_6_Thanks()
 				{
-				ChatBot_Step_1_Welcome(textThankYou);
+				AssistBot_Step_1_Welcome(textThankYou);
 				}
 
-			function ChatBot_Step_6_Error()
+			function AssistBot_Step_6_Error()
 				{
-				ChatBot_Step_1_Welcome(textError);
+				AssistBot_Step_1_Welcome(textError);
 				}
 
 			function minimize()
 				{
-				if (document.getElementById("ChatBot").style.overflowY == "hidden")
+				if (document.getElementById("AssistBot").style.overflowY == "hidden")
 					{
-					document.getElementById("ChatBot").style.overflowY = "visible"; 
-					document.getElementById("ChatBot").style.height = "auto";
+					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.height = "auto";
 					document.getElementById("botui-closeicon").style.display = "block";
 					}
 					else
 					{
-					document.getElementById("ChatBot").style.overflowY = "hidden"; 
-					document.getElementById("ChatBot").style.height = "30" + "px";
+					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.height = "30" + "px";
 					document.getElementById("botui-closeicon").style.display = "none";
 					}
 				}
@@ -290,7 +290,7 @@
 
 			window.onload = function()
 				{
-				ChatBot_Step_1_Welcome(textWelcome);
+				AssistBot_Step_1_Welcome(textWelcome);
 				};
 
 			/*

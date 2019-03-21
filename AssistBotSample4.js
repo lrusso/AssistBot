@@ -744,9 +744,9 @@ window.onload = function()
 	var threeCanvas = document.getElementById("threeCanvas");
 	document.getElementById("threeCanvas").height = window.innerHeight;
 	document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
-	document.getElementById("ChatBot").style.left = document.getElementById("threeCanvas").width + "px";
+	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
 	init3D();
-	ChatBot_Step_1_Welcome(textWelcome);
+	AssistBot_Step_1_Welcome(textWelcome);
 	};
 
 //===============================================
@@ -799,7 +799,7 @@ function resize()
 	{
 	document.getElementById("threeCanvas").height = window.innerHeight;
 	document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
-	document.getElementById("ChatBot").style.left = document.getElementById("threeCanvas").width + "px";
+	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
 
 	camera.aspect = document.getElementById("threeCanvas").width/document.getElementById("threeCanvas").height;
 	camera.updateProjectionMatrix();
@@ -891,7 +891,7 @@ function loadSea3d()
 		}
 
 	loader.parser = THREE.SEA3D.DEFAULT;
-	loader.load("ChatBotSample4.sea");
+	loader.load("AssistBotSample4.sea");
 	}
 
 function loadSea3dBody()
