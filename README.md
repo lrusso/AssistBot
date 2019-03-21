@@ -1,15 +1,15 @@
 # AssistBot - JavaScript Chatbot Assistant for Websites
 
-![alt screen](https://raw.githubusercontent.com/lrusso/assistbot/master/ChatBot.png)
+![alt screen](https://raw.githubusercontent.com/lrusso/AssistBot/master/ChatBot.png)
 
 ## Bot samples
 
 | #  | BOT URL  | BOT DETAILS |
 | :------------: |:---------------:| :-----|
-| 1 | https://lrusso.github.io/AssistBot/ChatBotSample1.htm | Web receptionist.
-| 2 | https://lrusso.github.io/AssistBot/ChatBotSample2.htm | Hotel receptionist.
-| 3 | https://lrusso.github.io/AssistBot/ChatBotSample3.htm | Tech Support receptionist.
-| 4 | https://lrusso.github.io/AssistBot/ChatBotSample4.htm | 3D Talking Bot Web receptionist.
+| 1 | https://lrusso.github.io/AssistBot/AssistBotSample1.htm | Web receptionist.
+| 2 | https://lrusso.github.io/AssistBot/AssistBotSample2.htm | Hotel receptionist.
+| 3 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Tech Support receptionist.
+| 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | 3D Talking Bot Web receptionist.
 
 ## Sending the data
 
