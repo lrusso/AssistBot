@@ -8,8 +8,9 @@
 | :------------: |:---------------:| :-----|
 | 1 | https://lrusso.github.io/AssistBot/AssistBotSample1.htm | Web receptionist.
 | 2 | https://lrusso.github.io/AssistBot/AssistBotSample2.htm | Hotel receptionist.
-| 3 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Tech Support receptionist.
-| 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | 3D Talking Bot Web receptionist.
+| 3 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Hospital receptionist.
+| 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
+| 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
 
 ## Sending the data
 
