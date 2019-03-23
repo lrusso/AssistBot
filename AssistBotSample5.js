@@ -891,7 +891,7 @@ function loadSea3d()
 		}
 
 	loader.parser = THREE.SEA3D.DEFAULT;
-	loader.load("AssistBotSample4.sea");
+	loader.load("AssistBotSample5.sea");
 	}
 
 function loadSea3dBody()
