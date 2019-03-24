@@ -50,7 +50,7 @@
 				textCheckNameQuestionAnswerNo = " no aparece registrado en ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textDownloadReportQuestion = "&iquest;Cu&aacute;l es el nombre completo de la persona que se hizo el estudio?";
 				textDownloadReportQuestionRetry = "Por favor, ingrese el nombre completo de la persona que se hizo el estudio.";
-				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en %URL% para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en [%URL%](%URL%) para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textDownloadReportAnswerNo = " no posee ningun estudio para retirar. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
@@ -204,13 +204,14 @@
 							else
 							{
 							var pacientName = res.value;
-							var pacientReportURL = "<a href='http://www.example.com/myreport.pdf'>eameo</a>";
+							var pacientReportURL = "http://www.example.com/myreport.pdf";
 
 							var isInARoom = true;
 
 							if (isInARoom==true)
 								{
 								var answer = pacientName + textDownloadReportAnswerYes;
+								answer = answer.replace("%URL%",pacientReportURL);
 								answer = answer.replace("%URL%",pacientReportURL);
 								AssistBot_Step_1_Welcome(answer);
 								}
