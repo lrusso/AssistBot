@@ -81,7 +81,7 @@
 				textInputReportNumberRetry = "Por favor, ingrese su n&uacute;mero de ticket.";
 				textInputReportNumberFound = "Su ticket indica que el dispositivo est&aacute; siendo reparado y ser&aacute; notificado durante el d&iacute;a de hoy. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textInputReportNumberNotFound = "No se encontr&oacute; un ticket con ese n&uacute;mero. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
-				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico, su n&uacute;mero de ticket es 8513, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textThankYou = "Su consulta ha sido derivada al personal t&eacute;cnico, su n&uacute;mero de ticket es %TICKET%, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textError = "Error al derivar la consulta, por favor vuelva a intentarlo en otro momento. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textGladToHelp = "Fue un gusto haber sido de ayuda. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
@@ -113,7 +113,7 @@
 				textInputReportNumberRetry = "Please, input your ticket number.";
 				textInputReportNumberFound = "Your ticket says that the device is been repaired and you are going to be notified during the day. What else can I do for you?";
 				textInputReportNumberNotFound = "No ticket found with that number. What else can I do for you?";
-				textThankYou = "A report was made to the technical support team, your ticket number is 8513, thank you. What else can I do for you?";
+				textThankYou = "A report was made to the technical support team, your ticket number is %TICKET%, thank you. What else can I do for you?";
 				textError = "Error while making the report, please try again later. What else can I do for you?";
 				textGladToHelp = "It was a pleasure to help you. What else can I do for you?";
 				textPlaceHolder = "Escriba un mensaje";
@@ -358,6 +358,7 @@
 				// SETTING THE PARAMETERS
 				var myUrl = "example.php";
 				var params = "device=" + encodeURIComponent(reportDevice) + "&problem=" + encodeURIComponent(reportProblem) + "&name=" + encodeURIComponent(reportName) + "&email=" + encodeURIComponent(reportEmail);
+				var ticketNumber = "1234";
 
 				// VERSION 1 - STANDARD XMLHTTPREQUEST
 				/*
@@ -391,12 +392,14 @@
 				*/
 
 				// FOR DEMO ONLY
-				AssistBot_Step_9_Thanks();
+				AssistBot_Step_9_Thanks(ticketNumber);
 				}
 
-			function AssistBot_Step_9_Thanks()
+			function AssistBot_Step_9_Thanks(ticketNumber)
 				{
-				AssistBot_Step_1_Welcome(textThankYou);
+				var answer = textThankYou;
+				answer = answer.replace("%TICKET%",ticketNumber);
+				AssistBot_Step_1_Welcome(answer);
 				}
 
 			function AssistBot_Step_9_Error()
