@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>AssistBot | Demo</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" href="AssistBot.css" type="text/css">
+		<style>
+			.botui-app-container2{position:fixed;bottom:0;right:15px;width:330px;z-index:9999;border-left:1px solid silver;border-top:1px solid silver;border-right:1px solid silver;background-color:white}
+		</style>
+	</head>
+	<body style="background-color:grey;">
+		<div class="botui-app-container2" id="AssistBot">
+			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename"></span><div class="botui-closeicon" id="botui-closeicon"></div></div>
+			<div class="botui-scroller" id="botui-scroller">
+				<bot-ui></bot-ui>
+			</div>
+		</div>
+		<script src="AssistBot.min.js"></script>
+		<script>
+
+			var homeBot = BotUI("AssistBot");
+
+			var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+			var textTitle = "";
+			var textWelcome = "";
+			var textCheckName = "";
+			var textDownloadReport = "";
+			var textCheckNameQuestion = "";
+			var textCheckNameQuestionRetry = "";
+			var textCheckNameQuestionAnswerYes = "";
+			var textCheckNameQuestionAnswerNo = "";
+			var textDownloadReportQuestion = "";
+			var textDownloadReportQuestionRetry = "";
+			var textDownloadReportAnswerYes = "";
+			var textDownloadReportAnswerNo = "";
+			var textPlaceHolder = "";
+			var textSend = "";
+
+			if (userLanguage.substring(0,2)=="es")
+				{
+				textTitle = "Asistente virtual";
+				textWelcome = "Hola, soy la asistente virtual del Hospital Ejemplo. &iquest;Qu&eacute; puedo hacer por usted?";
+				textCheckName = "Consultar paciente";
+				textDownloadReport = "Retirar estudio";
+				textCheckNameQuestion = "&iquest;Cu&aacute;l es el nombre completo del paciente?";
+				textCheckNameQuestionRetry = "Por favor, ingrese el nombre completo del paciente.";
+				textCheckNameQuestionAnswerYes = " se encuentra en el piso %FLOOR%, habitaci&oacute;n %ROOM%. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textCheckNameQuestionAnswerNo = " no aparece registrado en ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textDownloadReportQuestion = "&iquest;Cu&aacute;l es el nombre completo de la persona que se hizo el estudio?";
+				textDownloadReportQuestionRetry = "Por favor, ingrese el nombre completo de la persona que se hizo el estudio.";
+				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en %URL% para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textDownloadReportAnswerNo = " no posee ningun estudio para retirar. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textPlaceHolder = "Escriba un mensaje";
+				textSend = "Enviar";
+				}
+				else
+				{
+				textTitle = "Virtual assistant";
+				textWelcome = "Hello, I'm the virtual assistant at the Example Hotel. What can I do for you?";
+				textMakeReservation = "Reservartion";
+				textCheckReservation = "Check reservation";
+				textInputDate = "From which date you want to make the reservation?";
+				textInputDateWho = "What is the full name of the person that did the reservation?";
+				textInputDateWhoRetry = "Please, input the full name of the person that did the reservation.";
+				textInputDateError1 = "The date can't be before or equal to the current date. Please select another date.";
+				textInputDateError2 = "The date can't be more than two years after the current date. Please select another date.";
+				textVacancy = "There is vacancy in that date. What kind of room would you like?";
+				textNoVacancy = "There is no vacancy in the selected date. Please select another one.";
+				textRoomSimple = "Simple";
+				textRoomDouble = "Double";
+				textHowManyDays = "How many days are you going to stay?";
+				textInputName = "What is your full name?";
+				textInputNameRetry = "Please, input your full name.";
+				textInputEmail = "What is your email?";
+				textInputEmailRetry = "Please, input a valid email.";
+				textReservationMade = " has a double room reserved from 3th May until 13th May, on the 2th floor, room 35. What else can I do for you?";
+				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
+				textThankYou = "You reservation was made, thank you. What else can I do for you?";
+				textError = "Error while making the reservation, please try again later. What else can I do for you?";
+				textPlaceHolder = "Write a message";
+				textSend = "Send";
+				}
+
+			document.getElementById("botui-titlename").innerHTML = textTitle;
+
+			function AssistBot_Step_1_Welcome(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.button(
+						{
+						delay: 1000,
+						action: [
+									{text: textCheckName, value: "name"},
+									{text: textDownloadReport, value: "report"},
+								]
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.text});
+
+					if(res.value=="name")
+						{
+						AssistBot_Step_2_Name(textCheckNameQuestion);
+						}
+						else
+						{
+						AssistBot_Step_3_Report(textDownloadReportQuestion);
+						}
+					});
+				}
+
+			function AssistBot_Step_2_Name(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						AssistBot_Step_2_Name(textCheckNameQuestionRetry);
+						}
+						else
+						{
+						if (countWords(res.value)<2)
+							{
+							AssistBot_Step_2_Name(textCheckNameQuestionRetry);
+							}
+							else
+							{
+							var pacientName = res.value;
+							var pacientFloor = "2";
+							var pacientRoom = "3";
+
+							var isInARoom = true;
+
+							if (isInARoom==true)
+								{
+								var answer = pacientName + textCheckNameQuestionAnswerYes;
+								answer = answer.replace("%FLOOR%",pacientFloor);
+								answer = answer.replace("%ROOM%",pacientRoom);
+								AssistBot_Step_1_Welcome(answer);
+								}
+								else
+								{
+								var answer = pacientName + textCheckNameQuestionAnswerNo;
+								AssistBot_Step_1_Welcome(answer);
+								}
+							}
+						}
+					});
+				}
+
+			function AssistBot_Step_3_Report(a)
+				{
+				homeBot.message.add(
+					{
+					delay: 1200,
+					loading: true,
+					photo: true,
+					content: a
+					}).then(function ()
+					{
+					return homeBot.action.text(
+						{
+						delay: 800,
+						action: {value: "", placeholder: textPlaceHolder, button: {label: textSend}},
+						});
+					}).then(function (res)
+					{
+					homeBot.message.add({human: true, photo: true, content: res.value});
+
+					if (res.value.trim()=="")
+						{
+						AssistBot_Step_3_Report(textDownloadReportQuestionRetry);
+						}
+						else
+						{
+						if (countWords(res.value)<2)
+							{
+							AssistBot_Step_3_Report(textDownloadReportQuestionRetry);
+							}
+							else
+							{
+							var pacientName = res.value;
+							var pacientReportURL = "<a href='http://www.example.com/myreport.pdf'>eameo</a>";
+
+							var isInARoom = true;
+
+							if (isInARoom==true)
+								{
+								var answer = pacientName + textDownloadReportAnswerYes;
+								answer = answer.replace("%URL%",pacientReportURL);
+								AssistBot_Step_1_Welcome(answer);
+								}
+								else
+								{
+								var answer = pacientName + textDownloadReportAnswerNo;
+								AssistBot_Step_1_Welcome(answer);
+								}
+							}
+						}
+					});
+				}
+
+			function minimize()
+				{
+				if (document.getElementById("AssistBot").style.overflowY == "hidden")
+					{
+					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.height = "auto";
+					document.getElementById("botui-closeicon").style.display = "block";
+					}
+					else
+					{
+					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.height = "30" + "px";
+					document.getElementById("botui-closeicon").style.display = "none";
+					}
+				}
+
+			function normalizeName(str)
+				{
+				var splitStr = str.toLowerCase().split(" ");
+				for (var i = 0; i < splitStr.length; i++)
+					{
+					splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
+					}
+				return splitStr.join(" ");
+				}
+
+			function countWords(s)
+				{
+				s = s.replace(/(^\s*)|(\s*$)/gi,"");
+				s = s.replace(/[ ]{2,}/gi," ");
+				s = s.replace(/\n /,"\n");
+				return s.split(' ').filter(function(str){return str!="";}).length;
+				}
+
+			window.onload = function()
+				{
+				AssistBot_Step_1_Welcome(textWelcome);
+				};
+
+			/*
+			---------------------------
+			IMAGE EXAMPLE
+			---------------------------
+			delay: 1200,
+			type: "embed",
+			content: "https://giphy.com/embed/v1PSPwbLIrata"
+
+			---------------------------
+			URL EXAMPLE
+			---------------------------
+			delay: 1000,
+			content: "!(book) [Read the docs](https:///docs.botui.org), see [examples](https:///examples.botui.org) or explore the code on !(github) [GitHub](https://github.com/moinism/botui)"
+			*/
+
+		</script>
+	</body>
+</html>
