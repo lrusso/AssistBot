@@ -35,6 +35,7 @@
 			var textDownloadReportQuestionRetry = "";
 			var textDownloadReportAnswerYes = "";
 			var textDownloadReportAnswerNo = "";
+			var textDownloadReportExampleURL = "";
 			var textPlaceHolder = "";
 			var textSend = "";
 
@@ -52,6 +53,7 @@
 				textDownloadReportQuestionRetry = "Por favor, ingrese el nombre completo de la persona que se hizo el estudio.";
 				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en el link [%URLTITLE%](%URL%) para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textDownloadReportAnswerNo = " no posee ningun estudio para retirar. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textDownloadReportExampleURL = "https://www.ejemplo.com/estudio.pdf";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
 				}
@@ -69,6 +71,7 @@
 				textDownloadReportQuestionRetry = "Please input the full name of the pacient that has a medical report.";
 				textDownloadReportAnswerYes = " has a medical report to download. Please click in the link [%URLTITLE%](%URL%) to download it. What else can I do for you?";
 				textDownloadReportAnswerNo = " doesn't have a medical report to download. What else can I do for you?";
+				textDownloadReportExampleURL = "https://www.example.com/report.pdf";
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
 				}
@@ -195,7 +198,7 @@
 							{
 							var pacientName = res.value;
 							var pacientReportURL = "#"; // FOR DEMO ONLY
-							var pacientReportURLTitle = "https://www.example.com/report.pdf"; // FOR DEMO ONLY
+							var pacientReportURLTitle = textDownloadReportExampleURL; // FOR DEMO ONLY
 
 							var pacientReportAvailable = true;
 
