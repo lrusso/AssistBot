@@ -50,7 +50,7 @@
 				textCheckNameQuestionAnswerNo = " no aparece registrado en ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textDownloadReportQuestion = "&iquest;Cu&aacute;l es el nombre completo de la persona que se hizo el estudio?";
 				textDownloadReportQuestionRetry = "Por favor, ingrese el nombre completo de la persona que se hizo el estudio.";
-				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en [%URL%](%URL%) para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textDownloadReportAnswerYes = " posee un estudio para retirar. Haga click en el link [%URLTITLE%](%URL%) para descargarlo. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textDownloadReportAnswerNo = " no posee ningun estudio para retirar. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
 				textSend = "Enviar";
@@ -67,7 +67,7 @@
 				textCheckNameQuestionAnswerNo = " is not registered in any room. What else can I do for you?";
 				textDownloadReportQuestion = "What is the full name of the pacient that has a medical report?";
 				textDownloadReportQuestionRetry = "Please input the full name of the pacient that has a medical report.";
-				textDownloadReportAnswerYes = " has a medical report to download. Please click in [%URL%](%URL%) to download it. What else can I do for you?";
+				textDownloadReportAnswerYes = " has a medical report to download. Please click in the link [%URLTITLE%](%URL%) to download it. What else can I do for you?";
 				textDownloadReportAnswerNo = " doesn't have a medical report to download. What else can I do for you?";
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
@@ -194,7 +194,8 @@
 							else
 							{
 							var pacientName = res.value;
-							var pacientReportURL = "http://www.example.com/myreport.pdf";
+							var pacientReportURL = "#"; // FOR DEMO ONLY
+							var pacientReportURLTitle = "https://www.example.com/report.pdf"; // FOR DEMO ONLY
 
 							var pacientReportAvailable = true;
 
@@ -202,7 +203,7 @@
 								{
 								var answer = pacientName + textDownloadReportAnswerYes;
 								answer = answer.replace("%URL%",pacientReportURL);
-								answer = answer.replace("%URL%",pacientReportURL);
+								answer = answer.replace("%URLTITLE%",pacientReportURLTitle);
 								AssistBot_Step_1_Welcome(answer);
 								}
 								else
