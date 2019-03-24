@@ -40,6 +40,18 @@
 			var textInputEmailRetry = "";
 			var textReservationMade = "";
 			var textNoReservationMade = "";
+			var textMonth1 = "";
+			var textMonth2 = "";
+			var textMonth3 = "";
+			var textMonth4 = "";
+			var textMonth5 = "";
+			var textMonth6 = "";
+			var textMonth7 = "";
+			var textMonth8 = "";
+			var textMonth9 = "";
+			var textMonth10 = "";
+			var textMonth11 = "";
+			var textMonth12 = "";
 			var textThankYou = "";
 			var textError = "";
 			var textPlaceHolder = "";
@@ -71,8 +83,20 @@
 				textInputNameRetry = "Por favor, ingrese su nombre completo.";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
 				textInputEmailRetry = "Por favor, ingrese un correo v&aacute;lido.";
-				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del 3 al 13 de Mayo, en el piso 2, habitaci&oacute;n 35. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textReservationMade = " tiene reservada una habitaci&oacute;n matrimonial del %FROMDAY% de %FROMMONTH% de %FROMYEAR% al %TODAY% de %TOMONTH% de %TOYEAR%, en el piso %FLOOR%, habitaci&oacute;n %ROOM%. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textNoReservationMade = " no tiene reservada ninguna habitaci&oacute;n. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
+				textMonth1 = "Enero";
+				textMonth2 = "Febrero";
+				textMonth3 = "Marzo";
+				textMonth4 = "Abril";
+				textMonth5 = "Mayo";
+				textMonth6 = "Junio";
+				textMonth7 = "Julio";
+				textMonth8 = "Agosto";
+				textMonth9 = "Septiembre";
+				textMonth10 = "Octubre";
+				textMonth11 = "Noviembre";
+				textMonth12 = "Diciembre";
 				textThankYou = "Su reserva se ha realizado, muchas gracias. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textError = "Error al realizar la reserva, por favor vuelva a intentarlo en otro momento. &iquest;Qu&eacute; m&aacute;s puedo hacer por usted?";
 				textPlaceHolder = "Escriba un mensaje";
@@ -98,8 +122,20 @@
 				textInputNameRetry = "Please, input your full name.";
 				textInputEmail = "What is your email?";
 				textInputEmailRetry = "Please, input a valid email.";
-				textReservationMade = " has a double room reserved from 3th May until 13th May, on the 2th floor, room 35. What else can I do for you?";
+				textReservationMade = " has a double room reserved from %FROMDAY% %FROMMONTH% %FROMYEAR% to %TODAY% %TOMONTH% %TOYEAR%, on the floor %FLOOR%, room %ROOM%. What else can I do for you?";
 				textNoReservationMade = " hasn't any room reserved. What else can I do for you?";
+				textMonth1 = "January";
+				textMonth2 = "February";
+				textMonth3 = "March";
+				textMonth4 = "April";
+				textMonth5 = "May";
+				textMonth6 = "June";
+				textMonth7 = "July";
+				textMonth8 = "August";
+				textMonth9 = "September";
+				textMonth10 = "October";
+				textMonth11 = "November";
+				textMonth12 = "December";
 				textThankYou = "You reservation was made, thank you. What else can I do for you?";
 				textError = "Error while making the reservation, please try again later. What else can I do for you?";
 				textPlaceHolder = "Write a message";
@@ -425,9 +461,29 @@
 							{
 							var reserved = true;
 
+							var myDate = new Date();
+							var year = myDate.getFullYear();
+							var fromYear = year + 1;
+							var fromMonth = textMonth5;
+							var fromDay = "3";
+							var toYear = year + 1;
+							var toMonth = textMonth6;
+							var toDay = "20";
+							var floor = "2";
+							var room = "3";
+
 							if (reserved==true)
 								{
-								AssistBot_Step_1_Welcome(res.value + textReservationMade);
+								var answer = res.value + textReservationMade;
+								answer = answer.replace("%FROMYEAR%",fromYear);
+								answer = answer.replace("%FROMMONTH%",fromMonth);
+								answer = answer.replace("%FROMDAY%",fromDay);
+								answer = answer.replace("%TOYEAR%",toYear);
+								answer = answer.replace("%TOMONTH%",toMonth);
+								answer = answer.replace("%TODAY%",toDay);
+								answer = answer.replace("%FLOOR%",floor);
+								answer = answer.replace("%ROOM%",room);
+								AssistBot_Step_1_Welcome(answer);
 								}
 								else
 								{
