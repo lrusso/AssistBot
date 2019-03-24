@@ -189,7 +189,7 @@
 						{
 						AssistBot_Step_2_Date(textInputDateError2);
 						}
-					else if (isNaN(selectedYear)) // IF THE SELECTED YEAR DOESN'T EXISTS
+					else if (isNaN(selectedYear)) // IF THE SELECTED YEAR DO NOT EXISTS
 						{
 						AssistBot_Step_2_Date(textInputDateError2);
 						}
@@ -480,7 +480,7 @@
 				s = s.replace(/(^\s*)|(\s*$)/gi,"");
 				s = s.replace(/[ ]{2,}/gi," ");
 				s = s.replace(/\n /,"\n");
-				return s.split(' ').filter(function(str){return str!="";}).length;
+				return s.split(" ").filter(function(str){return str!="";}).length;
 				}
 
 			window.onload = function()
