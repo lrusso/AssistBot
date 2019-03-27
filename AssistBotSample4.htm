@@ -16,6 +16,10 @@
 		<script src="AssistBot.min.js"></script>
 		<script>
 
+			var hourFrom = 0;
+			var hourTo = 23;
+			var hourTimeZone = "-3"; // EXAMPLE TIME ZONE
+
 			var homeBot = BotUI("AssistBot");
 
 			var userLanguage = window.navigator.userLanguage || window.navigator.language;
@@ -491,9 +495,50 @@
 				return s.split(" ").filter(function(str){return str!="";}).length;
 				}
 
+			function getTime(offset)
+				{
+				var d = new Date();
+				var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+				var nd = new Date(utc + (3600000*offset));
+				var hours = nd.getHours();
+				return hours;
+				}
+
+			function isInRange(hour)
+				{
+				if (hourFrom>=hourTo)
+					{
+					if (hourFrom<=hour)
+						{
+						return true;
+						}
+						else
+						{
+						return false;
+						}
+					}
+				else
+					{
+					if (hourTo>=hour)
+						{
+						return true;
+						}
+						else
+						{
+						return false;
+						}
+					}
+				}
+
 			window.onload = function()
 				{
-				AssistBot_Step_1_Welcome(textWelcome);
+				var checkWorkingHour = getTime(hourTimeZone);
+				var isWorkingTime = isInRange(checkWorkingHour);
+				if (isWorkingTime==true)
+					{
+					document.getElementById("AssistBot").style.display = "block";
+					AssistBot_Step_1_Welcome(textWelcome);
+					}
 				};
 
 			/*
