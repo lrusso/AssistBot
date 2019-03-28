@@ -19,9 +19,9 @@
 		<script src="AssistBot.min.js"></script>
 		<script>
 
-			var hourFrom = 0;
-			var hourTo = 23;
-			var hourTimeZone = "-3"; // EXAMPLE TIME ZONE
+			var workingFrom = 0;
+			var workingTo = 23;
+			var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
 
 			var homeBot = BotUI("AssistBot");
 
@@ -258,9 +258,9 @@
 
 			function isInRange(hour)
 				{
-				if (hourFrom>=hourTo)
+				if (workingFrom>=workingTo)
 					{
-					if (hourFrom<=hour)
+					if (workingFrom<=hour)
 						{
 						return true;
 						}
@@ -271,7 +271,7 @@
 					}
 				else
 					{
-					if (hourTo>=hour)
+					if (workingTo>=hour)
 						{
 						return true;
 						}
@@ -284,7 +284,7 @@
 
 			window.onload = function()
 				{
-				var checkWorkingHour = getTime(hourTimeZone);
+				var checkWorkingHour = getTime(workingTimeZone);
 				var isWorkingTime = isInRange(checkWorkingHour);
 				if (isWorkingTime==true)
 					{
