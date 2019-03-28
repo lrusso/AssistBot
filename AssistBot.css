@@ -24,7 +24,7 @@ button.botui-actions-buttons-button:not(:last-child),button.botui-actions-button
 .botui-messages-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:10px;display:block;width:auto;}
 .botui-actions-container{padding-left:10px;padding-top:5px;padding-bottom:10px;padding-right:10px}
 .botui-message{min-height:30px}
-.botui-message-content{padding:7px 13px;border-radius:15px;color:#595a5a;background-color:#ebebeb;box-sizing:content-box}
+.botui-message-content{padding:8px 13px;border-radius:15px;color:#595a5a;background-color:#ebebeb;box-sizing:content-box}
 .botui-message-content.human{color:#f7f8f8;background-color:#919292}
 .botui-message-content.text{min-height:18px;line-height:18px}
 .botui-message-content.loading{background-color:rgba(206,206,206,.5);line-height:1.3;text-align:center;box-sizing:content-box}
