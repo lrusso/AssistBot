@@ -12,6 +12,16 @@
 | 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
 | 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
 
+## Working in time ranges
+
+Is possible to set a working time range for the bots. If you don't want this just set the bots to work from 0 to 23.
+
+```
+var hourFrom = 9;
+var hourTo = 18;
+var hourTimeZone = "-3"; // EXAMPLE TIME ZONE
+```
+
 ## Sending the data
 
 There are two methods for posting data in the samples:
