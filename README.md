@@ -21,6 +21,9 @@ var hourFrom = 9;
 var hourTo = 18;
 var hourTimeZone = "-3"; // EXAMPLE TIME ZONE
 ```
+## Time zone value list
+
+https://lrusso.github.io/AssistBot/TimeZoneTest.htm
 
 ## Sending the data
 
