@@ -12,9 +12,9 @@
 | 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
 | 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
 
-## Working in time ranges
+## Bots working in time ranges
 
-Is possible to set a working time range for the bots. If you don't want this just set the bots to work from 0 to 23.
+Is possible to set a working time range for the bots. The window dialog with the bot will only appear within that time range. If you don't want this just set the bots to work from 0 to 23.
 
 ```
 var hourFrom = 9;
