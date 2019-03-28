@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Time zone test in JavaScript</title>
+		<style>
+			body{font-family:Arial;font-size:14px;}
+			table{border-right:1px solid silver;border-bottom:1px solid silver;border-top:0;border-left:0;padding:0;margin:0;border-collapse:separate;border-spacing:0 0;font-family:Arial;font-size:14px;line-height:20px;margin-top:10px;width:100%;}
+			table td{border-left:1px solid silver;border-top:1px solid silver;border-bottom:0;border-right:0;padding:0;margin:0;}
+			.table_utc_value{width:100px;text-align:center;}
+			.table_utc_location{padding-left:5px;}
+			.utc_textbox{display:inline-block;margin-top:7px;border:1px solid silver;width:150px;height:20px;font-family:Arial;font-size:14px;padding-left:4px;padding-right:4px;}
+			.utc_submitbox{display:inline-block;margin-top:7px;border:1px solid silver;height:23px;font-family:Arial;font-size:14px;}
+		</style>
+	</head>
+	<body>
+		<script>
+			function calcTime(offset)
+				{
+				// create Date object for current location
+				var d = new Date();
+
+				// convert to msec
+				// subtract local time zone offset
+				// get UTC time in msec
+				var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+				// create new Date object for different city
+				// using supplied offset
+				var nd = new Date(utc + (3600000*offset));
+
+				// getting the time
+				var hours = nd.getHours();
+				var minutes = nd.getMinutes();
+				var seconds = nd.getSeconds();
+				var resultString = hours + ":" + minutes + ":" + seconds;
+
+				// return the hour as a string
+				return resultString;
+				}
+		</script>
+		Time: <span id="result"></span><br/>
+		<input type="text" class="utc_textbox" id="utc_value" placeholder="Input a UTC VALUE">
+		<input type="button" class="utc_submitbox" onclick="document.getElementById('result').innerHTML=calcTime(document.getElementById('utc_value').value);" value="Get time">
+		<script>
+			document.getElementById("utc_value").focus();
+			document.getElementById("utc_value").onkeydown = function(event)
+				{
+				if (event.keyCode === 13)
+					{
+					document.getElementById("result").innerHTML=calcTime(document.getElementById("utc_value").value);
+					}
+				}
+		</script>
+
+		<table>
+			<tr><td class="table_utc_value"><b>UTC VALUE</b></td><td class="table_utc_location"><b>LOCATION</b></td></tr>
+			<tr><td class="table_utc_value">-12</td><td class="table_utc_location">United States Minor Outlying Islands</td></tr>
+			<tr><td class="table_utc_value">-12</td><td class="table_utc_location">Baker Island</td></tr>
+			<tr><td class="table_utc_value">-12</td><td class="table_utc_location">Howland Island</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">United States</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">American Samoa</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">United States Minor Outlying Islands</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">Jarvis Island</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">Kingman Reef</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">Midway Atoll</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">Palmyra Atoll</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">New Zealand</td></tr>
+			<tr><td class="table_utc_value">-11</td><td class="table_utc_location">Niue</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">French Polynesia (except Marquesas Islands and Gambier Islands)</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">New Zealand</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Cook Islands</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">United States (Hawaii–Aleutian Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Alaska</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Aleutian Islands west of 169.30°W</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Hawaii</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">United States Minor Outlying Islands</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Johnston Atoll</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Honolulu</td></tr>
+			<tr><td class="table_utc_value">-10</td><td class="table_utc_location">Papeete</td></tr>
+			<tr><td class="table_utc_value">-9.5</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-9.5</td><td class="table_utc_location">French Polynesia</td></tr>
+			<tr><td class="table_utc_value">-9.5</td><td class="table_utc_location">Marquesas Islands</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">French Polynesia</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">Gambier Islands</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">United States (Alaska Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">Alaska (except Aleutian Islands west of 169.30°W)</td></tr>
+			<tr><td class="table_utc_value">-9</td><td class="table_utc_location">Anchorage</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Canada (Pacific Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">British Columbia (except Northern Rockies Regional Municipality, Peace River Regional District, and the south-eastern communities of Cranbrook, Golden and Invermere)</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Yukon</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Clipperton Island</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Mexico</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Baja California</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Pitcairn Islands</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">United States (Pacific Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">California</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Idaho</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">North of Salmon River</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Nevada (except West Wendover)</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Oregon (except Malheur County)</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Washington</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Los Angeles</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Vancouver</td></tr>
+			<tr><td class="table_utc_value">-8</td><td class="table_utc_location">Tijuana</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Canada (Mountain Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Alberta</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">British Columbia</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Northern Rockies Regional Municipality</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Peace River Regional District</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The south-eastern communities of Cranbrook, Golden and Invermere</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Northwest Territories</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Nunavut</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Kitikmeot Region</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Saskatchewan</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Lloydminster</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Mexico</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Baja California Sur, Chihuahua, Nayarit, Sinaloa and Sonora states</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">United States (Mountain Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Arizona</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Colorado</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Idaho</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">South of Salmon River</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Kansas</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The western counties of Greeley, Hamilton, Sherman and Wallace</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Montana</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Nebraska</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The western counties of Cherry (western part), Hooker, Arthur, Keith, Perkins, Chase and Dundy, and all counties to the west of these</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Nevada</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">West Wendover</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">New Mexico</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">North Dakota</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The Southwestern counties of Adams, Billings, Bowman, Dunn (southern part), Golden Valley, Grant, Hettinger, McKenzie (southern part), Sioux (west of ND route 31), Slope and Stark</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Oregon</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Malheur County (except a small strip in the south)</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">South Dakota</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The western counties of Corson, Dewey, Stanley (western part), Jackson and Bennett, and all counties to the west of these</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Texas</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">The western counties of Culberson (northwestern part), El Paso and Hudspeth</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Utah</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Wyoming</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Phoenix</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Calgary</td></tr>
+			<tr><td class="table_utc_value">-7</td><td class="table_utc_location">Ciudad Juárez</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Belize</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Canada (Central Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Manitoba</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Nunavut</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Kivalliq Region (except Southampton Island)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Ontario</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Ontario (West of 90° west)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Saskatchewan (except Lloydminster)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Chile</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Easter Island</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Costa Rica</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Ecuador</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Galápagos Islands</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">El Salvador</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Guatemala</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Honduras</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Mexico (All except Baja California, Baja California Sur, Chihuahua, Nayarit, Quintana Roo, Sinaloa and Sonora)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Nicaragua</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">United States (Central Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Alabama (Except for Chambers, Lee, Macon, & Russel counties)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Arkansas</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Florida</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">The counties of Bay, Calhoun, Escambia, Holmes, Jackson, Okaloosa, Santa Rosa, Walton, and Washington, and northern Gulf county (panhandle)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Illinois</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Indiana</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Northwestern counties of Jasper, Lake, LaPorte, Newton, Porter and Starke</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Southwestern counties of Gibson, Perry, Posey, Spencer, Vanderburgh and Warrick</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Iowa</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Kansas (except westernmost counties)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Kentucky</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">The counties of Breckinridge, Grayson, Hart, Green, Adair, Russell and Clinton, and all counties to the west of these</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Louisiana</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Michigan</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">The western counties of Dickinson, Gogebic, Iron and Menominee</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Minnesota</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Mississippi</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Missouri</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Nebraska</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Central and eastern Nebraska</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">North Dakota (except southwest)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Oklahoma (except Kenton)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">South Dakota</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Eastern half</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Tennessee</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Counties located to the west of the counties of Scott, Morgan, Roane, Rhea, and Hamilton</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Texas (except westernmost counties)</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Wisconsin</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Chicago</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Guatemala City</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Mexico City</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">San José</td></tr>
+			<tr><td class="table_utc_value">-6</td><td class="table_utc_location">Winnipeg</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Bahamas</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Brazil</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Acre</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Amazonas (13 western municipalities, approximately marked by a line between Tabatinga and Porto Acre)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Canada (Eastern Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Nunavut (Qikiqtaaluk Region except Resolute)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Ontario</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Ontario (East of 90° West)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Quebec (Most of province except easternmost area)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Colombia</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Cuba</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Ecuador</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Haiti</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Jamaica</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Mexico</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Quintana Roo</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Panama</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Peru</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Cayman Islands</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Turks and Caicos Islands</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">United States (Eastern Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Alabama</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Chambers, Lee, Macon, & Russel counties</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Delaware</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">District of Columbia</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Florida (except the counties of Bay, Calhoun, Escambia, Holmes, Jackson, Okaloosa, Santa Rosa, Walton, and Washington, and northern Gulf county (panhandle))</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Georgia</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Indiana (except the northwestern counties of Jasper, Lake, LaPorte, Newton, Porter and Starke, and the southwestern counties of Gibson, Perry, Posey, Spencer, Vanderburgh and Warrick)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Kentucky</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Counties located to the east of the counties of Breckinridge, Grayson, Hart, Green, Adair, Russell and Clinton</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Maryland</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Michigan (except the western counties of Dickinson, Gogebic, Iron and Menominee)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">New England (states of Connecticut, Massachusetts, Maine, New Hampshire, Rhode Island and Vermont)</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">New Jersey</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">New York</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">North Carolina</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Ohio</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Pennsylvania</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">South Carolina</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Tennessee</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">The counties of Scott, Morgan, Roane, Rhea, Meigs and Bradley, and all counties to the east of these</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Virginia</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">West Virginia</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">United States Minor Outlying Islands</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Navassa Island</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">New York</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Lima</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Toronto</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Bogotá</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Havana</td></tr>
+			<tr><td class="table_utc_value">-5</td><td class="table_utc_location">Kingston</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Antigua and Barbuda</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Barbados</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Bolivia</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Brazil</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">The states of Amazonas (except westernmost municipalities), Mato Grosso, Mato Grosso do Sul, Rondônia and Roraima</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Canada (Atlantic Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">New Brunswick</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Newfoundland and Labrador</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Labrador (except the area between L"Anse-au-Clair and Norman Bay)</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Nova Scotia</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Prince Edward Island</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Quebec</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">East of the 63°W longitude</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Chile (except Easter Island)</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Denmark</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Greenland</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Pituffik (Thule)</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Dominica</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Dominican Republic</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Guadeloupe</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Martinique</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saint Barthélemy</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saint-Martin</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Grenada</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Guyana</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Netherlands</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Aruba</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Caribbean Netherlands</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Bonaire</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saba</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Sint Eustatius</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Curaçao</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Sint Maarten</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Paraguay</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saint Kitts and Nevis</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saint Lucia</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Saint Vincent and the Grenadines</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Trinidad and Tobago</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Anguilla</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Bermuda</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">British Virgin Islands</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Montserrat</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">United States (Atlantic Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Puerto Rico</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">U.S. Virgin Islands</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Venezuela</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Santiago</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Santo Domingo</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Manaus</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Caracas</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">La Paz</td></tr>
+			<tr><td class="table_utc_value">-4</td><td class="table_utc_location">Halifax</td></tr>
+			<tr><td class="table_utc_value">-3.5</td><td class="table_utc_location">Canada (Newfoundland Time Zone)</td></tr>
+			<tr><td class="table_utc_value">-3.5</td><td class="table_utc_location">Newfoundland and Labrador</td></tr>
+			<tr><td class="table_utc_value">-3.5</td><td class="table_utc_location">Labrador</td></tr>
+			<tr><td class="table_utc_value">-3.5</td><td class="table_utc_location">The area between L"Anse-au-Clair and Norman Bay</td></tr>
+			<tr><td class="table_utc_value">-3.5</td><td class="table_utc_location">Newfoundland</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Argentina</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Brazil (except the western states of Acre, Amazonas, Mato Grosso, Mato Grosso do Sul, Rondônia and Roraima; and offshore islands)</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Denmark</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Greenland (except areas around Pituffik (Thule), Danmarkshavn and Ittoqqortoormiit)</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">French Guiana</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Saint-Pierre and Miquelon</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Suriname</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Falkland Islands</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Uruguay</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">São Paulo</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Buenos Aires</td></tr>
+			<tr><td class="table_utc_value">-3</td><td class="table_utc_location">Montevideo</td></tr>
+			<tr><td class="table_utc_value">-2</td><td class="table_utc_location">Brazil</td></tr>
+			<tr><td class="table_utc_value">-2</td><td class="table_utc_location">Fernando de Noronha</td></tr>
+			<tr><td class="table_utc_value">-2</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">-2</td><td class="table_utc_location">South Georgia and the South Sandwich Islands</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Cape Verde</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Denmark</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Greenland</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Ittoqqortoormiit and surrounding area</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Portugal</td></tr>
+			<tr><td class="table_utc_value">-1</td><td class="table_utc_location">Azores islands</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Burkina Faso</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Côte d"Ivoire</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Denmark</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Faroe Islands</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Greenland</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Danmarkshavn and surrounding area</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Gambia</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Ghana</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Guinea</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Guinea-Bissau</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Iceland</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Ireland</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Liberia</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Mali</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Mauritania</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Portugal (Including Madeira and excluding Azores islands)</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">São Tomé and Príncipe</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Spain</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Canary Islands</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Senegal</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Sierra Leone</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Togo</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">United Kingdom (Including Guernsey, Isle of Man, Jersey and Saint Helena, Ascension and Tristan da Cunha)</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">London</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Accra</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Dakar</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Dublin</td></tr>
+			<tr><td class="table_utc_value">0</td><td class="table_utc_location">Lisbon</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Albania</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Algeria</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Andorra</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Angola</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Austria</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Belgium</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Benin</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Bosnia and Herzegovina</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Cameroon</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Central African Republic</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Chad</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Republic of the Congo</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Democratic Republic of the Congo</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Democratic Republic of the Congo(The provinces of Bandundu, Bas-Congo, Équateur and Kinshasa)</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Croatia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Czech Republic</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Denmark</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Equatorial Guinea</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Gabon</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Germany</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Hungary</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Italy</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Kosovo</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Liechtenstein</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Luxembourg</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Macedonia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Malta</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Monaco</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Montenegro</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Morocco</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Netherlands</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Niger</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Nigeria</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Norway (Including Svalbard and Jan Mayen)</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Poland</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">San Marino</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Serbia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Slovakia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Slovenia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Spain (Including Balearic Islands, Ceuta and Melilla and excluding Canary Islands)</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Sweden</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Switzerland</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Tunisia</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Gibraltar</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Vatican City</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Western Sahara</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Lagos</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Kinshasa</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Casablanca</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Berlin</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Rome</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Paris</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Madrid</td></tr>
+			<tr><td class="table_utc_value">+1</td><td class="table_utc_location">Warsaw</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Botswana</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Bulgaria</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Burundi</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Cyprus</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Democratic Republic of the Congo</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Democratic Republic of the Congo (the provinces of Kasaï Occidental, Kasaï Oriental, Katanga, Maniema, Nord-Kivu, Orientale and Sud-Kivu)</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Egypt</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Estonia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Finland</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Greece</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Israel</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Jordan</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Latvia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Lebanon</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Lesotho</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Lithuania</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Libya</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Malawi</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Moldova</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Transnistria</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Mozambique</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Namibia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">State of Palestine</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Romania</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Russia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Northwestern Federal District</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Kaliningrad Oblast</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Rwanda</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">South Africa</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Sudan</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Swaziland</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Syria</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Ukraine (except part of Donetsk and Luhansk regions, Crimea (occupied by Russia))</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Akrotiri and Dhekelia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Zambia</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Zimbabwe</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Cairo</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Khartoum</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Johannesburg</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Kiev</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Bucharest</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Jerusalem</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Athens</td></tr>
+			<tr><td class="table_utc_value">+2</td><td class="table_utc_location">Kaliningrad</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Bahrain</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Belarus</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Comoros</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Djibouti</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Eritrea</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Ethiopia</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">French Southern and Antarctic Lands</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Scattesilver Islands in the Indian Ocean</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Bassas da India, Europa Island and Juan de Nova Island</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Mayotte</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Georgia</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Abkhazia and South Ossetia</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Iraq</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Kenya</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Kuwait</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Madagascar</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Qatar</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Russia – Moscow Time</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Central Federal District</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">North Caucasian Federal District</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Northwestern Federal District (except Kaliningrad Oblast)</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Southern Federal District (except Astrakhan Oblast and Volgograd Oblast)</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Volga Federal District (except Ulyanovsk Oblast, Samara Oblast, Saratov Oblast, Udmurtia, Bashkortostan, Orenburg Oblast and Perm Krai)</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Saudi Arabia</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Somalia</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">South Africa</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Prince Edward Islands</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">South Sudan</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Tanzania</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Turkey</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Uganda</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Ukraine</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Part of Donetsk and Luhansk regions, Crimea (occupied by Russia)</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Yemen</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Moscow</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Istanbul</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Riyadh</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Baghdad</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Nairobi</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Minsk</td></tr>
+			<tr><td class="table_utc_value">+3</td><td class="table_utc_location">Doha</td></tr>
+			<tr><td class="table_utc_value">+3.5</td><td class="table_utc_location">Iran</td></tr>
+			<tr><td class="table_utc_value">+3.5</td><td class="table_utc_location">Tehran</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Armenia</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Azerbaijan</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">French Southern and Antarctic Lands</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Crozet Islands</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Scattesilver Islands in the Indian Ocean</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Glorioso Islands and Tromelin Island</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Réunion</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Georgia (except Abkhazia and South Ossetia)</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Mauritius</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Oman</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Russia – Samara Time</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Southern Federal District</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Astrakhan Oblast</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Volgograd Oblast</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Volga Federal District</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Samara Oblast, Saratov Oblast, Udmurtia and Ulyanovsk Oblast</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Seychelles</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">United Arab Emirates</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Dubai</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Baku</td></tr>
+			<tr><td class="table_utc_value">+4</td><td class="table_utc_location">Samara</td></tr>
+			<tr><td class="table_utc_value">+4.5</td><td class="table_utc_location">Afghanistan</td></tr>
+			<tr><td class="table_utc_value">+4.5</td><td class="table_utc_location">Kabul</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Heard Island and McDonald Islands</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">French Southern and Antarctic Lands</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Île Amsterdam</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Île Saint-Paul</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Kerguelen Islands</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Kazakhstan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">The provinces of Aktobe, Atyrau, Kyzylorda, Mangystau and West Kazakhstan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Maldives</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Pakistan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Russia – Yekaterinburg Time</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Ural Federal District</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Volga Federal District</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Bashkortostan, Orenburg Oblast and Perm Krai</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Tajikistan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Turkmenistan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Uzbekistan</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Karachi</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Tashkent</td></tr>
+			<tr><td class="table_utc_value">+5</td><td class="table_utc_location">Yekaterinburg</td></tr>
+			<tr><td class="table_utc_value">+5.5</td><td class="table_utc_location">India</td></tr>
+			<tr><td class="table_utc_value">+5.5</td><td class="table_utc_location">Sri Lanka</td></tr>
+			<tr><td class="table_utc_value">+5.5</td><td class="table_utc_location">Delhi</td></tr>
+			<tr><td class="table_utc_value">+5.5</td><td class="table_utc_location">Colombo</td></tr>
+			<tr><td class="table_utc_value">+5.75</td><td class="table_utc_location">Nepal</td></tr>
+			<tr><td class="table_utc_value">+5.75</td><td class="table_utc_location">Kathmandu</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Bangladesh</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Bhutan</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Kazakhstan (except the provinces of Aktobe, Atyrau, Kyzylorda, Mangystau and West Kazakhstan)</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Kyrgyzstan</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Russia – Omsk Time</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Siberian Federal District</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Omsk Oblast</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">United Kingdom</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">British Indian Ocean Territory</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Dhaka</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Almaty</td></tr>
+			<tr><td class="table_utc_value">+6</td><td class="table_utc_location">Omsk</td></tr>
+			<tr><td class="table_utc_value">+6.5</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+6.5</td><td class="table_utc_location">Cocos (Keeling) Islands</td></tr>
+			<tr><td class="table_utc_value">+6.5</td><td class="table_utc_location">Myanmar</td></tr>
+			<tr><td class="table_utc_value">+6.5</td><td class="table_utc_location">Yangon</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Christmas Island</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Cambodia</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Indonesia</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Java, Sumatra, Riau Islands, West Kalimantan and Central Kalimantan</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Laos</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Mongolia</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Western part, including Hovd</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Russia – Krasnoyarsk Time</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Siberian Federal District</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Altai Krai</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Altai Republic</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Kemerovo Oblast</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Khakassia</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Krasnoyarsk Krai</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Novosibirsk Oblast</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Tomsk Oblast</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Tuva</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Thailand</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Vietnam</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Jakarta</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Bangkok</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Ho Chi Minh City</td></tr>
+			<tr><td class="table_utc_value">+7</td><td class="table_utc_location">Krasnoyarsk</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Australia (Western Australia (except Eucla))</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Brunei</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">China</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Hong Kong</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Indonesia</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">North Kalimantan, East Kalimantan, South Kalimantan, Lesser Sunda Islands and Sulawesi</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Macau</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Malaysia</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Mongolia</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Mongolia (Eastern part, including Ulaanbaatar)</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Philippines</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Russia – Irkutsk Time</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Siberian Federal District</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Buryatia</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Irkutsk Oblast</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Singapore</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Taiwan</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Shanghai</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Hong Kong</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Kuala Lumpur</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Singapore</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Taipei</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Perth</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Manila</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Makassar</td></tr>
+			<tr><td class="table_utc_value">+8</td><td class="table_utc_location">Irkutsk</td></tr>
+			<tr><td class="table_utc_value">+8.75</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+8.75</td><td class="table_utc_location">Western Australia</td></tr>
+			<tr><td class="table_utc_value">+8.75</td><td class="table_utc_location">Eucla</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Indonesia</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Maluku Islands</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Papua and West Papua</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Japan</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">North Korea</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Palau</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Russia</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Far Eastern Federal District</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Amur Oblast, Sakha Republic (western part; west of the Lena River as well as territories adjacent to the Lena on the eastern side)</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Siberian Federal District</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Zabaykalsky Krai</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">South Korea</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Timor-Leste</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Tokyo</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Seoul</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Pyongyang</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Ambon</td></tr>
+			<tr><td class="table_utc_value">+9</td><td class="table_utc_location">Yakutsk</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">Northern Territory</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">South Australia</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">New South Wales</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">Broken Hill</td></tr>
+			<tr><td class="table_utc_value">+9.5</td><td class="table_utc_location">Adelaide</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Australian Capital Territory</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">New South Wales (except Broken Hill)</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Queensland</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Tasmania</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Victoria</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Federated States of Micronesia</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Western part</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Papua New Guinea</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">All of the country except Autonomous Region of Bougainville</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Russia – Vladivostok Time</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Far Eastern Federal District</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Primorsky Krai, Jewish Autonomous Oblast, Khabarovsk Krai, and Sakha Republic (central part; east of 140 degrees longitude and including the Abyysky, Allaikhovsky, Momsky, Nizhnekolymsky, and Ssilvernekolymsky districts)</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">United States</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Guam</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Northern Mariana Islands</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Sydney</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Port Moresby</td></tr>
+			<tr><td class="table_utc_value">+10</td><td class="table_utc_location">Vladivostok</td></tr>
+			<tr><td class="table_utc_value">+10.5</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+10.5</td><td class="table_utc_location">New South Wales</td></tr>
+			<tr><td class="table_utc_value">+10.5</td><td class="table_utc_location">Lord Howe Island</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Australia</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Norfolk Island</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Federated States of Micronesia</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Eastern part</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">New Caledonia</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Papua New Guinea</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Autonomous Region of Bougainville</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Russia – Magadan Time</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Far Eastern Federal District</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Sakha Republic (eastern part; Oymyakonsky, Ust-Yansky, and Verkhoyansky districts), Magadan Oblast and Sakhalin Oblast</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Solomon Islands</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Vanuatu</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Nouméa</td></tr>
+			<tr><td class="table_utc_value">+11</td><td class="table_utc_location">Magadan</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">France</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Wallis and Futuna</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Fiji</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Kiribati</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Gilbert Islands</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Marshall Islands</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Nauru</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">New Zealand (except Chatham Islands)</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Russia – Kamchatka Time</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Far Eastern Federal District</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Chukotka Autonomous Okrug and Kamchatka Krai</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Tuvalu</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">United States</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Wake Island</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Auckland</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Suva</td></tr>
+			<tr><td class="table_utc_value">+12</td><td class="table_utc_location">Petropavlovsk-Kamchatsky</td></tr>
+			<tr><td class="table_utc_value">+12.75</td><td class="table_utc_location">New Zealand</td></tr>
+			<tr><td class="table_utc_value">+12.75</td><td class="table_utc_location">Chatham Islands</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">Kiribati</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">Phoenix Islands</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">New Zealand</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">Tokelau</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">Samoa</td></tr>
+			<tr><td class="table_utc_value">+13</td><td class="table_utc_location">Tonga</td></tr>
+			<tr><td class="table_utc_value">+14</td><td class="table_utc_location">Kiribati</td></tr>
+			<tr><td class="table_utc_value">+14</td><td class="table_utc_location">Line Islands</td></tr>
+		</table>
+	</body>
+</html>
