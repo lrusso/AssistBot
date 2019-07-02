@@ -38,6 +38,7 @@
 			var textRoomSimple = "";
 			var textRoomDouble = "";
 			var textHowManyDays = "";
+			var textHowManyDaysError = "";
 			var textInputName = "";
 			var textInputNameRetry = "";
 			var textInputEmail = "";
@@ -83,6 +84,7 @@
 				textRoomSimple = "Simple";
 				textRoomDouble = "Matrimonial";
 				textHowManyDays = "&iquest;Cuantos d&iacute;as desea quedarse?";
+				textHowManyDaysError = "Por favor, ingrese una cantidad v&aacute;lida de d&iacute;as.";
 				textInputName = "&iquest;Cu&aacute;l es su nombre completo?";
 				textInputNameRetry = "Por favor, ingrese su nombre completo.";
 				textInputEmail = "&iquest;Cu&aacute;l es su correo?";
@@ -122,6 +124,7 @@
 				textRoomSimple = "Simple";
 				textRoomDouble = "Double";
 				textHowManyDays = "How many days are you going to stay?";
+				textHowManyDaysError = "Please, input a valid amount of days.";
 				textInputName = "What is your full name?";
 				textInputNameRetry = "Please, input your full name.";
 				textInputEmail = "What is your email?";
@@ -303,9 +306,16 @@
 					{
 					homeBot.message.add({human: true, photo: true, content: res.value});
 
-					reservationDays = res.value;
+					if (res.value<1)
+						{
+						AssistBot_Step_5_Days(textHowManyDaysError);
+						}
+						else
+						{
+						reservationDays = res.value;
 
-					AssistBot_Step_6_Name(textInputName);
+						AssistBot_Step_6_Name(textInputName);
+						}
 					});
 				}
 
