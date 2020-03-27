@@ -42,12 +42,12 @@ There is a AssistBot.php file sample in this repository that shows how the data 
 | :------------: |:---------------:| :-----|
 | Fixed | BotUI Core | Prevents from inputting HTML content.
 | Fixed | BotUI Core | Prevents from automatically showing the response of an action button.
-| Fixed | BotUI Style | Bugfixed when inputting a blank space.
-| Fixed | BotUI Style | Bugfixed that the messages were misplaced by 2 pixels.
-| Fixed | BotUI Style | Bugfixed that the icons inherits the box-sizing property.
-| Fixed | BotUI Style | Bugfixed that the input box inherits the box-sizing property.
-| Fixed | BotUI Style | Bugfixed that the messages inherits the box-sizing property.
-| Fixed | BotUI Style | Bugfixed that the loading dots inherits the box-sizing property.
+| Fixed | BotUI Style | Bugfix when inputting a blank space.
+| Fixed | BotUI Style | Bugfix where the messages were misplaced by 2 pixels.
+| Fixed | BotUI Style | Bugfix where the icons inherits the box-sizing property.
+| Fixed | BotUI Style | Bugfix where the input box inherits the box-sizing property.
+| Fixed | BotUI Style | Bugfix where the messages inherits the box-sizing property.
+| Fixed | BotUI Style | Bugfix where the loading dots inherits the box-sizing property.
 | Updated | BotUI Core | Scroll to bottom when new content.
 | Updated | BotUI Core | Agent and Human icons are loaded from the CSS file.
 | Updated | BotUI Core | Send button by default and with a different CSS class.
