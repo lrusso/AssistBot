@@ -741,13 +741,19 @@ var SEA3D={VERSION:16500,REVISION:2,Timer:function(){this.time=this.start=this.g
 
 window.addEventListener("load", function()
 	{
+	document.getElementsByClassName("demo-starter")[0].addEventListener("click",function(event){start3DBot()});
+	});
+
+function start3DBot()
+	{
+	document.getElementsByClassName("demo-starter")[0].style.display = "none";
 	var threeCanvas = document.getElementById("threeCanvas");
 	document.getElementById("threeCanvas").height = window.innerHeight;
 	document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
 	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
 	init3D();
 	AssistBot_Step_1_Welcome(textWelcome);
-	});
+	}
 
 //===============================================
 //  3D SIDE: THREE.JS & SEA3D
