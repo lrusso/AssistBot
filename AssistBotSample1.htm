@@ -327,7 +327,7 @@
 					}
 				}
 
-			window.onload = function()
+			window.addEventListener("load", function()
 				{
 				var checkWorkingHour = getTime(workingTimeZone);
 				var isWorkingTime = isInRange(checkWorkingHour);
@@ -336,7 +336,7 @@
 					document.getElementById("AssistBot").style.display = "block";
 					AssistBot_Step_1_Welcome(textWelcome);
 					}
-				};
+				});
 
 			/*
 			---------------------------
