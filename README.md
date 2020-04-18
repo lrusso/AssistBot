@@ -10,7 +10,7 @@
 | 2 | https://lrusso.github.io/AssistBot/AssistBotSample2.htm | Hotel receptionist.
 | 3 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Hospital receptionist.
 | 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
-| 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
+| 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist (experimental).
 
 ## Bots working in time ranges and time zones
 
