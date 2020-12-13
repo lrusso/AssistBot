@@ -31,8 +31,8 @@ button.botui-actions-buttons-button:not(:last-child),button.botui-actions-button
 .botui-message-content.embed{padding:5px;border-radius:5px}
 .botui-message-content-link{color:#919292}
 .botui-actions-text-input{border:0;outline:0;border-radius:0;width:100%;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292;box-sizing:content-box}
-.botui-actions-buttons-button{border:0;color:#fff;line-height:1;cursor:pointer;font-size:14px;font-weight:500;padding:7px 15px;border-radius:4px;font-family:Arial;background:#3a76b1;box-shadow:2px 3px 4px 0 rgba(0,0,0,.25)}
-.botui-actions-buttons-button-send{width:70px;border:0;color:#fff;line-height:1;cursor:pointer;font-size:14px;font-weight:500;padding:7px 15px;border-radius:4px;font-family:Arial;background:#3a76b1;box-shadow:2px 3px 4px 0 rgba(0,0,0,.25)}
+.botui-actions-buttons-button{border:0;color:#fff;line-height:1;cursor:pointer;font-size:14px;font-weight:500;padding:7px 15px;border-radius:4px;font-family:Arial;background:#3a76b1;box-shadow:2px 3px 4px 0 rgba(0,0,0,.25);-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.botui-actions-buttons-button-send{width:70px;border:0;color:#fff;line-height:1;cursor:pointer;font-size:14px;font-weight:500;padding:7px 15px;border-radius:4px;font-family:Arial;background:#3a76b1;box-shadow:2px 3px 4px 0 rgba(0,0,0,.25);-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .botui-actions-text-select{border:0;outline:0;border-radius:0;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292}
 .botui-actions-text-searchselect{border:0;outline:0;border-radius:0;padding:5px 7px;font-family:Arial;background-color:transparent;color:#595a5a;border-bottom:1px solid #919292}
 .botui-actions-text-searchselect .dropdown-toggle{border:none!important}
@@ -51,7 +51,7 @@ button.botui-actions-buttons-button:not(:last-child),button.botui-actions-button
 	75%{transform:translate(0,3px)}
 	100%{transform:translate(0,0)}
 	}
-.botui-title{float:left;width:100%;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:left;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer}
+.botui-title{float:left;width:100%;padding-top:1px;border-bottom:1px solid silver;font-family:Arial;font-size:14px;line-height:30px;text-align:left;color:white;font-weight:bold;background-color:#3a76b1;cursor:pointer;-webkit-user-select:none;-moz-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .botui-titlename{padding-left:7px}
 .botui-scroller{display:block;width:100%;height:200px;overflow-y:hidden}
 .botui-closeicon{float:right;margin-right:5px;margin-top:8px;width:16px;height:16px;display:inline-block;vertical-align:middle;background-repeat:no-repeat;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAAAmJLR0QA/4ePzL8AAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAHdElNRQfiBh4ALjMcCa0fAAABK0lEQVQoz4WRv0sCYRyHH88UXGwKSglpuKGIogiEmtsCx5ZcGpzirT8ghOaGBoObgsjdMChoiganotGDarHupB/UlJmn59vw3nvVUH2Xl/f9fIbneb8Rwd9jqGNzaaeRL+tHk+27tfPxBMAAQHFxsGLEplegnAeTghNPm6NGjQW7jSAz1L6RUkopPXlRLtFx1K0nrS0BAoFb8KWu9INYStexEkIxzO89b/QBiBFJK46me2Ta7QAy52d3deVnHFrk/Gyp96TjHrenKoZoNhDbv4+PfLmnZpLD9eOwoMS+f0+U1FxQEWSS71ea/MF5WddGHWkJZeH5TQnAo3s4NRvidt9ogAG5j8nl1pmK7Vdt1PIqq3YVImpZ1Vh94uBak0Nx7LJ74kBY+Hebv88nsLefxkmy4roAAAAASUVORK5CYII=")}
