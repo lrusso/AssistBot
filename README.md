@@ -4,13 +4,13 @@
 
 ## Bot samples
 
-|  BOT URL  | BOT DETAILS |
+|  BOT URL  | DETAILS |
 | :---------------:| :-----|
 | https://lrusso.github.io/AssistBot/AssistBotSample1.htm | Web receptionist.
 | https://lrusso.github.io/AssistBot/AssistBotSample2.htm | Hotel receptionist.
 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Hospital receptionist.
 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
-| https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
+| https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Bot Web receptionist.
 
 ## Bots working in time ranges and time zones
 
