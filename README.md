@@ -51,7 +51,7 @@ https://github.com/botui/botui **(Version 0.3.8)**
 | Fixed | Style | Bugfix where the icons inherits the box-sizing property.
 | Fixed | Style | Bugfix where the input box inherits the box-sizing property.
 | Fixed | Style | Bugfix where the messages inherits the box-sizing property.
-| Fixed | Style | Bugfix where the loading dots inherits the box-sizing property.
+| Fixed | Style | Bugfix where the three dots inherits the box-sizing property.
 | Updated | Core | Scroll to bottom when new content.
 | Updated | Core | Agent and Human icons are loaded from the CSS file.
 | Updated | Core | Send button by default and with a different CSS class.
