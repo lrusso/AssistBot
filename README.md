@@ -38,7 +38,7 @@ There is a AssistBot.php file in this repository with a sample logic.
 
 ## Based on BotUI 
 
-https://github.com/botui/botui (version 0.3.8)
+https://github.com/botui/botui **(version 0.3.8)**
 
 ## Bugfixes and updates
 
