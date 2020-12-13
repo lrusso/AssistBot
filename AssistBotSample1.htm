@@ -257,28 +257,6 @@
 				AssistBot_Step_1_Welcome(textError);
 				}
 
-			function minimize()
-				{
-				if (document.getElementById("AssistBot").style.overflowY == "hidden")
-					{
-					document.getElementById("AssistBot").style.overflowY = "visible";
-					document.getElementById("AssistBot").style.height = "auto";
-					document.getElementsByClassName("botui-scroller")[0].style.display = "block";
-					document.getElementsByClassName("botui-closeicon")[0].style.display = "block";
-					setTimeout(function()
-						{
-						document.getElementsByClassName("botui botui-container")[0].scrollTop = document.getElementsByClassName("botui botui-container")[0].scrollHeight;
-						},100);
-					}
-					else
-					{
-					document.getElementById("AssistBot").style.overflowY = "hidden";
-					document.getElementById("AssistBot").style.height = "30" + "px";
-					document.getElementsByClassName("botui-scroller")[0].style.display = "none";
-					document.getElementsByClassName("botui-closeicon")[0].style.display = "none";
-					}
-				}
-
 			function validateEmail(email)
 				{
 				var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -338,8 +316,26 @@
 				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS OR TOUCHES IN THE CHATBOT WINDOW TITLE
 				document.getElementsByClassName("botui-title")[0].addEventListener("click",function(event)
 					{
-					// MINIMIZING OR RESTORING THE CHATBOT WINDOW
-					minimize();
+					// CHECKING IF THE CHATBOT WINDOW IS MINIMIZED
+					if (document.getElementById("AssistBot").style.overflowY == "hidden")
+						{
+						// SHOWING THE CHATBOT WINDOW
+						document.getElementById("AssistBot").style.overflowY = "visible";
+						document.getElementById("AssistBot").style.height = "auto";
+						document.getElementsByClassName("botui-scroller")[0].style.display = "block";
+						document.getElementsByClassName("botui-closeicon")[0].style.display = "block";
+
+						// SCROLLING TO THE BOTTOM OF THE CHATBOT WINDOW
+						setTimeout(function(){document.getElementsByClassName("botui botui-container")[0].scrollTop = document.getElementsByClassName("botui botui-container")[0].scrollHeight;},100);
+						}
+						else
+						{
+						// HIDING THE CHATBOT WINDOW
+						document.getElementById("AssistBot").style.overflowY = "hidden";
+						document.getElementById("AssistBot").style.height = "30" + "px";
+						document.getElementsByClassName("botui-scroller")[0].style.display = "none";
+						document.getElementsByClassName("botui-closeicon")[0].style.display = "none";
+						}
 					});
 
 				// GETTING THE CURRENT TIME
