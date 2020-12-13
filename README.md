@@ -16,7 +16,7 @@
 
 Is possible to set a working time range for the bots. The window dialog with the bot will only appear within that time range. If you don't want this just set the bot to work from 0 to 23.
 
-```
+```javascript
 var workingFrom = 9;
 var workingTo = 18;
 var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
