@@ -10,7 +10,7 @@
 | 2 | https://lrusso.github.io/AssistBot/AssistBotSample2.htm | Hotel receptionist.
 | 3 | https://lrusso.github.io/AssistBot/AssistBotSample3.htm | Hospital receptionist.
 | 4 | https://lrusso.github.io/AssistBot/AssistBotSample4.htm | Tech Support receptionist.
-| 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist (experimental).
+| 5 | https://lrusso.github.io/AssistBot/AssistBotSample5.htm | 3D Talking Bot Web receptionist.
 
 ## Bots working in time ranges and time zones
 
@@ -25,14 +25,14 @@ var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
 
 https://lrusso.github.io/AssistBot/TimeZoneTest.htm
 
-## Sending the data
+## Sending the data to a server
 
 There are two methods for posting data in the samples:
 
 - First method: Standard XMLHttpRequest.
 - Second method: Creating an image variable, setting in the src value a server URL where all the parameters are sent by GET and the answer of the server must be an image in order to get a valid reply from the bot. This method is useful if you want to avoid the CORS limitation that may exists between servers.
 
-## Receiving the data
+## Receiving the data from the server
 
 There is a AssistBot.php file sample in this repository that shows how the data may be received.
 
