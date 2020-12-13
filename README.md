@@ -40,7 +40,7 @@ There is a AssistBot.php file in this repository with a sample logic.
 
 https://github.com/botui/botui (version 0.3.8)
 
-## BotUI bugfixes and updates
+## Bugfixes and updates on BotUI
 
 | TYPE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
