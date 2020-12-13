@@ -45,7 +45,7 @@ https://github.com/botui/botui **(Version 0.3.8)**
 | TYPE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
 | Fixed | Core | Prevents from inputting HTML content.
-| Fixed | Core | Prevents from automatically showing the response of an action button.
+| Fixed | Core | Prevents from automatically showing a response.
 | Fixed | Style | Bugfix when inputting a blank space.
 | Fixed | Style | Bugfix where the messages were misplaced by 2 pixels.
 | Fixed | Style | Bugfix where the icons inherits the box-sizing property.
