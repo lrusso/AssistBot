@@ -10,15 +10,14 @@
 		</style>
 	</head>
 	<body style="background-color:grey;">
-		<div class="botui-app-container2" id="AssistBot">
-			<div class="botui-title" onclick="minimize()"><span class="botui-titlename" id="botui-titlename"></span><div class="botui-closeicon" id="botui-closeicon"></div></div>
-			<div class="botui-scroller" id="botui-scroller">
+		<div class="botui-app-container" id="AssistBot">
+			<div class="botui-title"><span class="botui-titlename"></span><div class="botui-closeicon"></div></div>
+			<div class="botui-scroller">
 				<bot-ui></bot-ui>
 			</div>
 		</div>
 		<script src="AssistBot.min.js"></script>
 		<script>
-
 			var workingFrom = 0;
 			var workingTo = 23;
 			var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
@@ -79,8 +78,6 @@
 				textPlaceHolder = "Write a message";
 				textSend = "Send";
 				}
-
-			document.getElementById("botui-titlename").innerHTML = textTitle;
 
 			function AssistBot_Step_1_Welcome(a)
 				{
@@ -227,15 +224,21 @@
 				{
 				if (document.getElementById("AssistBot").style.overflowY == "hidden")
 					{
-					document.getElementById("AssistBot").style.overflowY = "visible"; 
+					document.getElementById("AssistBot").style.overflowY = "visible";
 					document.getElementById("AssistBot").style.height = "auto";
-					document.getElementById("botui-closeicon").style.display = "block";
+					document.getElementsByClassName("botui-scroller")[0].style.display = "block";
+					document.getElementsByClassName("botui-closeicon")[0].style.display = "block";
+					setTimeout(function()
+						{
+						document.getElementsByClassName("botui botui-container")[0].scrollTop = document.getElementsByClassName("botui botui-container")[0].scrollHeight;
+						},100);
 					}
 					else
 					{
-					document.getElementById("AssistBot").style.overflowY = "hidden"; 
+					document.getElementById("AssistBot").style.overflowY = "hidden";
 					document.getElementById("AssistBot").style.height = "30" + "px";
-					document.getElementById("botui-closeicon").style.display = "none";
+					document.getElementsByClassName("botui-scroller")[0].style.display = "none";
+					document.getElementsByClassName("botui-closeicon")[0].style.display = "none";
 					}
 				}
 
@@ -284,11 +287,26 @@
 
 			window.addEventListener("load", function()
 				{
-				var checkWorkingHour = getTime(workingTimeZone);
-				var isWorkingTime = isInRange(checkWorkingHour);
-				if (isWorkingTime==true)
+				// UPDATING THE CHATBOT WINDOW TITLE
+				document.getElementsByClassName("botui-titlename")[0].innerHTML = textTitle;
+
+				// SETTING WHAT WILL HAPPEN WHEN THE USER CLICKS OR TOUCHES IN THE CHATBOT WINDOW TITLE
+				document.getElementsByClassName("botui-title")[0].addEventListener("click",function(event)
 					{
+					// HIDING OR RESTORING THE CHATBOT WINDOW
+					minimize();
+					});
+
+				// GETTING THE CURRENT TIME
+				var checkWorkingHour = getTime(workingTimeZone);
+
+				// CHECKING IF IS WORKING TIME FOR THE CHATBOT
+				if (isInRange(checkWorkingHour)==true)
+					{
+					// SHOWING THE CHATBOT WINDOW
 					document.getElementById("AssistBot").style.display = "block";
+
+					// SHOWING THE WELCOME MESSAGE
 					AssistBot_Step_1_Welcome(textWelcome);
 					}
 				});
