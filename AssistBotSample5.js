@@ -903,6 +903,7 @@ function loadSea3dBody()
 	{
 	fullLoaded = true;
 	document.getElementsByClassName("demo-starter")[0].addEventListener("click",function(event){start3DBot()});
+	document.getElementsByClassName("pleasewait_container")[0].style.display = "none";
 	}
 
 function testMorph(m, name)
