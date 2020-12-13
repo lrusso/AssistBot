@@ -25,16 +25,16 @@ var workingTimeZone = "-3"; // EXAMPLE TIME ZONE
 
 https://lrusso.github.io/AssistBot/TimeZoneTest.htm
 
-## Sending the data to a server
+## Sending the data (client side)
 
 There are two methods for posting data in the samples:
 
 - First method: Standard XMLHttpRequest.
 - Second method: Creating an image variable, setting in the src value a server URL where all the parameters are sent by GET and the answer of the server must be an image in order to get a valid reply from the bot. This method is useful if you want to avoid the CORS limitation that may exists between servers.
 
-## Receiving the data from the server
+## Receiving the data (server side)
 
-There is a AssistBot.php file sample in this repository that shows how the data may be received.
+There is a AssistBot.php file in this repository with a sample logic.
 
 ## Based on BotUI with several bugfixes and updates
 
