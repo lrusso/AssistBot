@@ -36,7 +36,11 @@ There are two methods for posting data in the samples:
 
 There is a AssistBot.php file in this repository with a sample logic.
 
-## Based on BotUI with several bugfixes and updates
+## Based on BotUI 
+
+https://github.com/botui/botui (version 0.3.7)
+
+## BotUI bugfixes and updates
 
 | TYPE  | ELEMENT  | DETAILS |
 | :------------: |:---------------:| :-----|
