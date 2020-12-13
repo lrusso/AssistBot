@@ -1,4 +1,4 @@
-# AssistBot - JavaScript Bot Assistant for Websites
+# AssistBot - Chatbots in JavaScript
 
 ![alt screen](https://raw.githubusercontent.com/lrusso/AssistBot/master/AssistBot.png)
 
