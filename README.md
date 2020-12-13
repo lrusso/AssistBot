@@ -51,6 +51,6 @@ There is a AssistBot.php file sample in this repository that shows how the data 
 | Updated | BotUI Core | Scroll to bottom when new content.
 | Updated | BotUI Core | Agent and Human icons are loaded from the CSS file.
 | Updated | BotUI Core | Send button by default and with a different CSS class.
-| Updated | Bot Samples | Looping checkings for inputted data.
-| Updated | Bot Samples | Implemented scrolling chatbot window.
-| Updated | Bot Samples | Implemented close button in the chatbot window.
+| Updated | Samples | Looping checkings for inputted data.
+| Updated | Samples | Implemented scrolling chatbot window.
+| Updated | Samples | Implemented close button in the chatbot window.
