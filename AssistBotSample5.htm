@@ -28,12 +28,18 @@
 			.lds-spinner div:nth-child(11){transform:rotate(300deg);animation-delay:-0.1s}
 			.lds-spinner div:nth-child(12){transform:rotate(330deg);animation-delay:0s}
 			@keyframes lds-spinner{0%{opacity:1}100%{opacity:0}}
+
+			@media only screen and (orientation:portrait)
+				{
+				.botui-app-container3D{background-color:red;position:fixed;top:unset;bottom:0;height:300px !important;left:0 !important;right:0;z-index:9999;background-color:white}
+				}
+
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="AssistBot.css" type="text/css">
 	</head>
 	<body>
-		<canvas id="threeCanvas" width="400" height="100"></canvas>
+		<canvas id="threeCanvas"></canvas>
 		<div class="botui-app-container3D" id="AssistBot">
 			<div class="botui-scroller3D" id="botui-scroller">
 				<bot-ui></bot-ui>

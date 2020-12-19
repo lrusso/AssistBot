@@ -742,8 +742,18 @@ var SEA3D={VERSION:16500,REVISION:2,Timer:function(){this.time=this.start=this.g
 window.addEventListener("load", function()
 	{
 	var threeCanvas = document.getElementById("threeCanvas");
-	document.getElementById("threeCanvas").height = window.innerHeight;
-	document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
+	if (window.innerWidth > window.innerHeight)
+		{
+		document.getElementById("threeCanvas").height = window.innerHeight;
+		document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
+		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+		}
+		else
+		{
+		document.getElementById("threeCanvas").height = window.innerHeight - 300;
+		document.getElementById("threeCanvas").width = window.innerWidth;
+		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+		}
 	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
 	init3D();
 	});
@@ -802,9 +812,18 @@ function loop()
 
 function resize()
 	{
-	document.getElementById("threeCanvas").height = window.innerHeight;
-	document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
-	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+	if (window.innerWidth > window.innerHeight)
+		{
+		document.getElementById("threeCanvas").height = window.innerHeight;
+		document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
+		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+		}
+		else
+		{
+		document.getElementById("threeCanvas").height = window.innerHeight - 300;
+		document.getElementById("threeCanvas").width = window.innerWidth;
+		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+		}
 
 	camera.aspect = document.getElementById("threeCanvas").width/document.getElementById("threeCanvas").height;
 	camera.updateProjectionMatrix();
