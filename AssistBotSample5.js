@@ -6,27 +6,50 @@ var SEA3D={VERSION:16500,REVISION:2,Timer:function(){this.time=this.start=this.g
 
 window.addEventListener("load", function()
 	{
-	var threeCanvas = document.getElementById("threeCanvas");
-	if (window.innerWidth > window.innerHeight)
-		{
-		document.getElementById("threeCanvas").height = window.innerHeight;
-		document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
-		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
-		}
-		else
-		{
-		document.getElementById("threeCanvas").height = window.innerHeight - 300;
-		document.getElementById("threeCanvas").width = window.innerWidth;
-		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
-		}
-	document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+	resizeContent();
 	init3D();
+	});
+
+window.addEventListener("resize", function()
+	{
+	try
+		{
+		resizeContent();
+		camera.aspect = document.getElementById("threeCanvas").width/document.getElementById("threeCanvas").height;
+		camera.updateProjectionMatrix();
+		renderer.setSize(document.getElementById("threeCanvas").width,document.getElementById("threeCanvas").height, true);
+		}
+		catch(err)
+		{
+		}
 	});
 
 function start3DBot()
 	{
 	document.getElementsByClassName("demo-starter")[0].style.display = "none";
 	AssistBot_Step_1_Welcome(textWelcome);
+	}
+
+function resizeContent()
+	{
+	try
+		{
+		if (window.innerWidth > window.innerHeight)
+			{
+			document.getElementById("threeCanvas").height = window.innerHeight;
+			document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
+			document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+			}
+			else
+			{
+			document.getElementById("threeCanvas").height = window.innerHeight - 300;
+			document.getElementById("threeCanvas").width = window.innerWidth;
+			document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
+			}
+		}
+		catch(err)
+		{
+		}
 	}
 
 //===============================================
@@ -62,9 +85,8 @@ function init3D()
 	scene = new THREE.Scene();
 	camera = new THREE.PerspectiveCamera( 50, document.getElementById("threeCanvas").width/document.getElementById("threeCanvas").height, 0.5, 10000 );
 
-	window.addEventListener( "resize", resize, false );
-
 	loop();
+
 	loadSea3d();
 	}
 
@@ -73,26 +95,6 @@ function loop()
 	requestAnimationFrame(loop,renderer.domElement);
 	updateAnimation();
 	renderer.render(scene,camera);
-	}
-
-function resize()
-	{
-	if (window.innerWidth > window.innerHeight)
-		{
-		document.getElementById("threeCanvas").height = window.innerHeight;
-		document.getElementById("threeCanvas").width = window.innerWidth * 0.40;
-		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
-		}
-		else
-		{
-		document.getElementById("threeCanvas").height = window.innerHeight - 300;
-		document.getElementById("threeCanvas").width = window.innerWidth;
-		document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
-		}
-
-	camera.aspect = document.getElementById("threeCanvas").width/document.getElementById("threeCanvas").height;
-	camera.updateProjectionMatrix();
-	renderer.setSize(document.getElementById("threeCanvas").width,document.getElementById("threeCanvas").height, true);
 	}
 
 function loadSea3d()
