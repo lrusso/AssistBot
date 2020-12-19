@@ -443,40 +443,39 @@ function gradTexture(color)
 var userLanguage = window.navigator.userLanguage || window.navigator.language;
 var textToSpeech = window.speechSynthesis;
 var voices = textToSpeech.getVoices();
+
+var spanishPrefix = "es";
+var spanishLang = "es-MX";
 var spanishVoice = "Paulina";
 var spanishVoiceValue = null;
+
+var englishPrefix = "en";
+var englishLang = "en-US";
 var englishVoice = "Samantha";
 var englishVoiceValue = null;
 
-// FINDING THE SELECTED SPANISH VOICE
+// FINDING THE SELECTED ENGLISH AND SPANISH VOICES
 for (var i =0;i<voices.length;i++)
 	{
+	// CHECKING IF THERE IS A LANG PROPERTY
 	if (voices[i].lang)
 		{
-		if (voices[i].lang.indexOf("es-")>-1)
+		// CHECKING IF THE VOICE LANGUAGE IS IN SPANISH OR ENGISH
+		if (voices[i].lang.indexOf(spanishPrefix)>-1 || voices[i].lang.indexOf(englishPrefix)>-1)
 			{
+			// CHECKING IF THERE IS A NAME PROPERTY
 			if (voices[i].name)
 				{
-				if (voices[i].name==spanishVoice)
+				// CHECKING IF THE VOICE IS THE SELECTED SPANISH VOICE
+				if (spanishVoiceValue==null && voices[i].name==spanishVoice)
 					{
+					// BECAUSE THE SELECTED SPANISH VOICE WAS FOUND, WE UPDATE THE SPANISH VOICE VALUE
 					spanishVoiceValue = voices[i];
 					}
-				}
-			}
-		}
-	}
-
-// FINDING THE SELECTED ENGLISH VOICE
-for (var i =0;i<voices.length;i++)
-	{
-	if (voices[i].lang)
-		{
-		if (voices[i].lang.indexOf("en-")>-1)
-			{
-			if (voices[i].name)
-				{
-				if (voices[i].name==englishVoice)
+				// CHECKING IF THE VOICE IS THE SELECTED ENGLISH VOICE
+				else if (englishVoiceValue==null && voices[i].name==englishVoice)
 					{
+					// BECAUSE THE SELECTED ENGLISH VOICE WAS FOUND, WE UPDATE THE ENGLISH VOICE VALUE
 					englishVoiceValue = voices[i];
 					}
 				}
@@ -488,9 +487,9 @@ function speak(a)
 	{
 	var utterThis = new SpeechSynthesisUtterance(a);
 
-	if (userLanguage.substring(0,2)=="es")
+	if (userLanguage.substring(0,2)==spanishPrefix)
 		{
-		utterThis.lang = "es-MX";
+		utterThis.lang = spanishLang;
 		if (spanishVoiceValue!=null)
 			{
 			utterThis.voice = spanishVoiceValue;
@@ -498,7 +497,7 @@ function speak(a)
 		}
 		else
 		{
-		utterThis.lang = "en-US";
+		utterThis.lang = englishLang;
 		if (englishVoiceValue!=null)
 			{
 			utterThis.voice = englishVoiceValue;
