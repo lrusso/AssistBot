@@ -1185,7 +1185,16 @@ var textToSpeech = window.speechSynthesis;
 function speak(a)
 	{
 	var utterThis = new SpeechSynthesisUtterance(a);
-	utterThis.lang = "es-MX";
+
+	var userLanguage = window.navigator.userLanguage || window.navigator.language;
+	if (userLanguage.substring(0,2)=="es")
+		{
+		utterThis.lang = "es-MX";
+		}
+		else
+		{
+		utterThis.lang = "en-US";
+		}
 
 	textToSpeech.cancel();
 	textToSpeech.speak(utterThis);
