@@ -8,8 +8,8 @@
 			canvas{float:left;border:0;padding:0;margin:0;display:block}
 			.botui-app-container3D{position:fixed;top:0;height:100%;left:424px;right:0;z-index:9999;background-color:white}
 			.botui-scroller3D{display:block;width:100%;height:100%;overflow-y:hidden}
-			.demo-starter{position:fixed;left:0;right:0;top:0;bottom:0;background-color:silver;font-family:Arial;font-size:36px;font-weight:bold;z-index:10000}
-			.demo-starter-label{position:fixed;top:0;bottom:0;left:0;right:0;margin:auto auto;width:auto;height:40px;text-align:center;cursor:default}
+			.demo-starter{position:fixed;left:0;right:0;top:0;bottom:0;background-color:silver;z-index:10000}
+			.demo-starter-label{position:fixed;top:0;bottom:0;left:0;right:0;margin:auto auto;width:auto;height:100px;text-align:center;font-family:Arial;font-size:36px;font-weight:bold;cursor:default}
 			.pleasewait_container{position:fixed;left:0;top:0;right:0;bottom:0;background-color:black;z-index:99999}
 			.pleasewait{position:fixed;width:64px;height:64px;left:0;right:0;top:0;bottom:0;margin:auto auto;border:0;z-index:9}
 			.lds-spinner{color:white;display:inline-block;position:relative;width:64px;height:64px}
@@ -32,6 +32,7 @@
 			@media only screen and (orientation:portrait)
 				{
 				.botui-app-container3D{background-color:red;position:fixed;top:unset;bottom:0;height:300px !important;left:0 !important;right:0;z-index:9999;background-color:white}
+				.demo-starter-label{font-size:30px}
 				}
 
 		</style>
@@ -80,7 +81,7 @@
 
 			if (userLanguage.substring(0,2)=="es")
 				{
-				textStart = "HAGA CLICK PARA COMENZAR LA DEMO";
+				textStart = "HAGA CLICK PARA<br/>COMENZAR LA DEMO";
 				textTitle = "Asistente virtual";
 				textWelcome = "Hola, soy la asistente virtual de este sitio Web. &iquest;Cu&aacute;l es el motivo de su visita?";
 				textInputName = "&iquest;Cu&aacute;l es su nombre?";
@@ -99,7 +100,7 @@
 				}
 				else
 				{
-				textStart = "CLICK TO START THE DEMO";
+				textStart = "CLICK TO START<br />THE BOT DEMO";
 				textTitle = "Virtual assistant";
 				textWelcome = "Hello, I'm the virtual assistant of this Website. What is the reason of your visit?";
 				textInputName = "What is your name?";
