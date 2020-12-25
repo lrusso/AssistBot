@@ -442,7 +442,6 @@ function gradTexture(color)
 
 var userLanguage = window.navigator.userLanguage || window.navigator.language;
 var textToSpeech = window.speechSynthesis;
-var voices = textToSpeech.getVoices();
 
 var spanishPrefix = "es";
 var spanishLang = "es-MX";
@@ -454,34 +453,41 @@ var englishLang = "en-US";
 var englishVoice = "Samantha";
 var englishVoiceValue = null;
 
-// FINDING THE SELECTED ENGLISH AND SPANISH VOICES
-for (var i =0;i<voices.length;i++)
+// THIS IS A REQUIRED EVENT LISTENER FOR CHROME COMPATIBILTIY
+textToSpeech.addEventListener("voiceschanged", function()
 	{
-	// CHECKING IF THERE IS A LANG PROPERTY
-	if (voices[i].lang)
+	// GETTING THE SYSTEM VOICE LIST
+	var voices = textToSpeech.getVoices();
+
+	// FINDING THE SELECTED ENGLISH AND SPANISH VOICES
+	for (var i =0;i<voices.length;i++)
 		{
-		// CHECKING IF THE VOICE LANGUAGE IS IN SPANISH OR ENGISH
-		if (voices[i].lang.indexOf(spanishPrefix)>-1 || voices[i].lang.indexOf(englishPrefix)>-1)
+		// CHECKING IF THERE IS A LANG PROPERTY
+		if (voices[i].lang)
 			{
-			// CHECKING IF THERE IS A NAME PROPERTY
-			if (voices[i].name)
+			// CHECKING IF THE VOICE LANGUAGE IS IN SPANISH OR ENGISH
+			if (voices[i].lang.indexOf(spanishPrefix)>-1 || voices[i].lang.indexOf(englishPrefix)>-1)
 				{
-				// CHECKING IF THE VOICE IS THE SELECTED SPANISH VOICE
-				if (spanishVoiceValue==null && voices[i].name==spanishVoice)
+				// CHECKING IF THERE IS A NAME PROPERTY
+				if (voices[i].name)
 					{
-					// BECAUSE THE SELECTED SPANISH VOICE WAS FOUND, WE UPDATE THE SPANISH VOICE VALUE
-					spanishVoiceValue = voices[i];
-					}
-				// CHECKING IF THE VOICE IS THE SELECTED ENGLISH VOICE
-				else if (englishVoiceValue==null && voices[i].name==englishVoice)
-					{
-					// BECAUSE THE SELECTED ENGLISH VOICE WAS FOUND, WE UPDATE THE ENGLISH VOICE VALUE
-					englishVoiceValue = voices[i];
+					// CHECKING IF THE VOICE IS THE SELECTED SPANISH VOICE
+					if (spanishVoiceValue==null && voices[i].name==spanishVoice)
+						{
+						// BECAUSE THE SELECTED SPANISH VOICE WAS FOUND, WE UPDATE THE SPANISH VOICE VALUE
+						spanishVoiceValue = voices[i];
+						}
+					// CHECKING IF THE VOICE IS THE SELECTED ENGLISH VOICE
+					else if (englishVoiceValue==null && voices[i].name==englishVoice)
+						{
+						// BECAUSE THE SELECTED ENGLISH VOICE WAS FOUND, WE UPDATE THE ENGLISH VOICE VALUE
+						englishVoiceValue = voices[i];
+						}
 					}
 				}
 			}
 		}
-	}
+	})
 
 function speak(a)
 	{
