@@ -30,7 +30,20 @@ window.addEventListener("resize", function()
 
 function start3DBot()
 	{
+	// HIDING THE DEMO STARTER CONTAINER
 	document.getElementsByClassName("demo-starter")[0].style.display = "none";
+
+	// CREATING THE SPEECH HANDLER INSTANCE WHEN THE USER CLICKED IN THE 'START DEMO' CONTAINER (FOR IOS COMPATIBILITY)
+	textToSpeechHandler = new SpeechSynthesisUtterance();
+
+	// WORKAROUND FOR TEXT TO SPEECH IN IOS.
+	// A SILENT TEXT IS SPOKEN IN ORDER TO LATER USE THE SAME TEXT TO SPEECH INSTANCE
+	textToSpeech.text = "ABC";
+	textToSpeech.volume = 0;
+	textToSpeech.speak(textToSpeechHandler);
+	textToSpeech.volume = 1;
+
+	// SHOWING THE WELCOME TEXT
 	AssistBot_Step_1_Welcome(textWelcome);
 	}
 
@@ -442,6 +455,7 @@ function gradTexture(color)
 
 var userLanguage = window.navigator.userLanguage || window.navigator.language;
 var textToSpeech = window.speechSynthesis;
+var textToSpeechHandler;
 
 var spanishPrefix = "es";
 var spanishLang = "es-MX";
@@ -491,38 +505,35 @@ textToSpeech.addEventListener("voiceschanged", function()
 
 function speak(a)
 	{
-	// CREATING THE SPEECH INSTANCE
-	var speechHandler = new SpeechSynthesisUtterance();
-
 	// SETTING THE TEXT TO SPEECH
-	speechHandler.text = a;
+	textToSpeechHandler.text = a;
 
 	// SETTING THE SPEECH RATE
-	speechHandler.rate = 1;
+	textToSpeechHandler.rate = 1;
 
 	// CHECKING IF THE BROWSER IS IN SPANISH
 	if (userLanguage.substring(0,2)==spanishPrefix)
 		{
 		// SETTING THE SPANISH LANGUAGE IN THE SPEECH INSTANCE
-		speechHandler.lang = spanishLang;
+		textToSpeechHandler.lang = spanishLang;
 
 		// CHECKING IF THE DESIRED SPANISH VOICE WAS FOUND
 		if (spanishVoiceValue!=null)
 			{
 			// SELECTING THE DESIRED SPANISH VOICE IN THE SPEECH INSTANCE
-			speechHandler.voice = spanishVoiceValue;
+			textToSpeechHandler.voice = spanishVoiceValue;
 			}
 		}
 		else
 		{
 		// SETTING THE ENGLISH LANGUAGE IN THE SPEECH INSTANCE
-		speechHandler.lang = englishLang;
+		textToSpeechHandler.lang = englishLang;
 
 		// CHECKING IF THE DESIRED ENGLISH VOICE WAS FOUND
 		if (englishVoiceValue!=null)
 			{
 			// SELECTING THE DESIRED ENGLISH VOICE IN THE SPEECH INSTANCE
-			speechHandler.voice = englishVoiceValue;
+			textToSpeechHandler.voice = englishVoiceValue;
 			}
 		}
 
@@ -530,10 +541,10 @@ function speak(a)
 	textToSpeech.cancel();
 
 	// SPEAKING THE TEXT
-	textToSpeech.speak(speechHandler);
+	textToSpeech.speak(textToSpeechHandler);
 
 	// MOVING THE LIPS WHILE SPEAKING
-	speechHandler.onstart = function (event)
+	textToSpeechHandler.onstart = function (event)
 		{
 		for (var i = 0; i < a.length * 0.3; i++)
 			{
