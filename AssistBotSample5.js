@@ -46,7 +46,7 @@ function resizeContent()
 			}
 			else
 			{
-			document.getElementById("threeCanvas").height = window.innerHeight - 230;
+			document.getElementById("threeCanvas").height = window.innerHeight - 229;
 			document.getElementById("threeCanvas").width = window.innerWidth;
 			document.getElementById("AssistBot").style.left = document.getElementById("threeCanvas").width + "px";
 			}
