@@ -486,31 +486,37 @@ for (var i =0;i<voices.length;i++)
 function speak(a)
 	{
 	// CREATING THE SPEECH INSTANCE
-	var utterThis = new SpeechSynthesisUtterance(a);
+	var speechHandler = new SpeechSynthesisUtterance();
+
+	// SETTING THE TEXT TO SPEECH
+	speechHandler.text = a;
+
+	// SETTING THE SPEECH RATE
+	speechHandler.rate = 1;
 
 	// CHECKING IF THE BROWSER IS IN SPANISH
 	if (userLanguage.substring(0,2)==spanishPrefix)
 		{
 		// SETTING THE SPANISH LANGUAGE IN THE SPEECH INSTANCE
-		utterThis.lang = spanishLang;
+		speechHandler.lang = spanishLang;
 
 		// CHECKING IF THE DESIRED SPANISH VOICE WAS FOUND
 		if (spanishVoiceValue!=null)
 			{
 			// SELECTING THE DESIRED SPANISH VOICE IN THE SPEECH INSTANCE
-			utterThis.voice = spanishVoiceValue;
+			speechHandler.voice = spanishVoiceValue;
 			}
 		}
 		else
 		{
 		// SETTING THE ENGLISH LANGUAGE IN THE SPEECH INSTANCE
-		utterThis.lang = englishLang;
+		speechHandler.lang = englishLang;
 
 		// CHECKING IF THE DESIRED ENGLISH VOICE WAS FOUND
 		if (englishVoiceValue!=null)
 			{
 			// SELECTING THE DESIRED ENGLISH VOICE IN THE SPEECH INSTANCE
-			utterThis.voice = englishVoiceValue;
+			speechHandler.voice = englishVoiceValue;
 			}
 		}
 
@@ -518,10 +524,10 @@ function speak(a)
 	textToSpeech.cancel();
 
 	// SPEAKING THE TEXT
-	textToSpeech.speak(utterThis);
+	textToSpeech.speak(speechHandler);
 
 	// MOVING THE LIPS WHILE SPEAKING
-	utterThis.onstart = function (event)
+	speechHandler.onstart = function (event)
 		{
 		for (var i = 0; i < a.length * 0.3; i++)
 			{
@@ -534,13 +540,13 @@ function speak(a)
 			startSequence = true;
 			finalSequence = false;
 			currentNum = 0
-			prevWord="";
+			prevWord = "";
 
 			phonemesSequency.push(0);
 			startSequence = true;
 			finalSequence = false;
 			currentNum = 0
-			prevWord="";
+			prevWord = "";
 			}
 		};
 	}
